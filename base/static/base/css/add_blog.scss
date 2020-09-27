@@ -1,0 +1,101 @@
+
+
+.my-container{
+    position: relative;
+    width: 100%;
+ 
+    display: grid;
+    grid-template-columns: 60% 40%;
+    form{
+        width: 100%;
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-right: 2px solid rgb(187, 185, 185);
+        input{
+            width: 100%;
+            margin-bottom: 30px;
+            padding: 8px;
+            border-radius: 5px;
+           
+        }
+        input[type = text]{
+            outline: none;
+            border: 1px solid grey;
+        }
+        input[type = text]:focus{
+            background-color: rgb(245, 243, 243);
+        }
+        label{
+            font-weight: 600;
+            font-size: 20px;
+        }
+        #cke_id_body{
+            width: 100% !important;
+        }
+        input[type = submit]{
+            margin-top: 30px;
+            width: 100px;
+            background: rgb(241, 181, 14);
+            border: none;
+            outline: none;
+        }
+        input[type = submit]:hover{
+            background: rgb(216, 162, 13);
+        }
+        input[type = submit]:active{
+            position: relative;
+            top: 2px;
+            box-shadow: 0 0 3px 3px rgb(238, 207, 71);
+            background: rgb(231, 173, 13);
+        }
+        input[type = checkbox]{
+            width: 30px;
+            margin: 20px 0 0 0 !important;
+        }
+        label[for=image-clear_id]{
+            font-size: 90%;
+            color: red;
+            font-weight: 500;
+        }
+    }
+    .instruction{
+      background-color: rgb(218, 218, 218);
+      padding: 3%;
+      font-size: 16px;
+        .instruct-title{
+            font-size: 150%;
+            color: rgb(143, 113, 31);
+            text-align: center;
+            font-weight: 600;
+        }
+        .element{
+            margin-top: 30px;
+        }
+        .images{
+            width: 100%;
+            .title{
+                font-weight: 500;
+                font-size: 130%;
+                margin-bottom: 10px;
+            }
+            img{
+                width: 100%;
+            }
+            .description{
+                .note{
+                    font-size: 95%;
+                    font-style: italic;
+                    color: rgb(192, 20, 20);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .my-container{
+        grid-template-columns: 1fr;
+    }
+}

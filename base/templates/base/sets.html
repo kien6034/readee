@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_head_content %}
+<link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/sets.css' %}">
+{% endblock %}
+
+{% block content %}
+   <div class="container">
+ 
+    <div class="row">
+    {% for set in sets %}
+        <div class="col-lg-6 col-xl-4 element">
+            <a href = "{% url 'blog_set' set.id %}"class="card">
+                <div class="image">
+                    <img src="{{set.blogs.first.imageURL}}" alt="set's image">
+                    <div class="up-layer">
+                       
+                        <div class="show-num">
+                            <div class="icon"><i class="fas fa-stream"></i></div>
+                            <div class="count">{{set.blogs.count}} blogs</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="title">
+                        {{set.name}}
+                    </div>
+                </div>
+     
+               
+            </a>
+        </div>
+        
+    {% endfor %} 
+    </div>
+   </div>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_head_content %}
+<link rel = "stylesheet" type = "text/css" href = "{% static 'blog/css/blog_finder.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script id = "addPostHandleBar" type = "text/x-handlebars-template">
+    {% verbatim %}
+        <div class="image-container">
+            <img src = {{this.image}}>
+        </div>
+        <div class="content">
+            <div class="name">{{this.name}}</div>
+            <div class="info">
+                <div class="views">{{this.views}} views</div>
+                <div class="bar"></div>
+                <div class="date">{{this.date}}</div>
+            </div>
+            <div class="author">
+                {{this.author}}
+            </div>
+            <div class="bar"></div>
+            <div class="description">
+                {{this.description}}
+            </div>
+        </div>
+    {% endverbatim %}
+</script>
+
+<script id = "addUserHandleBar" type = "text/x-handlebars-template">
+    {% verbatim %}
+        <div class="user-image">
+            <img src="{{this.image}}" alt="avatar">
+        </div>
+        <div class="user-info">
+            <div class="general-info">
+                <div class="name">{{this.name}}</div>
+                <div class="status"><i class="fas fa-check-circle"></i></div>
+            </div>
+            <div class="info">
+                <div class="score">Score: 30</div>
+                <div class="bar">Post: 3</div>
+            </div>
+        </div>
+    {% endverbatim %}
+</script>
+
+<script id = "addGroupHandleBar" type = "text/x-handlebars-template">
+    {% verbatim %}
+        <div class="image-container">
+            <img src = {{this.image}}>
+        </div>
+        <div class="content">
+            <div class="name">{{this.name}}</div>
+            <div class="info">
+                <div class="views">{{this.views}} views</div>
+                <div class="bar"></div>
+                
+                <div class="date">{{this.pcount}} posts</div>
+            </div>
+            <div class="author">
+                {{this.author}}
+            </div>
+            <div class="description">
+                {{this.description}}
+            </div>
+        </div>
+    {% endverbatim %}
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="main" id = "main">
+   
+    <div id = "sideBar" class="sidebar">
+        <div id = "filter" class="filter">
+            <i class="fas fa-filter"></i>
+        </div>
+        <div class="title">     
+        </div> 
+        <div class="type section">
+            <div class="title">Type</div>
+            <div class="choose">
+                <div class="checkbox">
+                    <input type="radio" id="post" name="type" value="post" checked>
+                    <label for="post">Post</label><br>
+                </div>
+               
+                <div class="checkbox">
+                    <input type="radio" id="group" name="type" value="group">
+                    <label for="group">Group</label><br>
+                </div>
+                
+                <div class="checkbox">
+                    <input type="radio" id="people" name="type" value="people">
+                    <label for="people">People</label>
+                </div>
+                
+            </div>
+        </div>
+        <div class="created_by section">
+            <div class="title">Created by</div>
+            <div class="choose">
+                <div class="checkbox">
+                    <input type="radio" id="all" name="by" value="all" checked>
+                    <label for="all">All</label><br>
+                </div>
+                <div class="checkbox">
+                    <input type="radio" id="normal" name="by" value="normal">
+                    <label for="normal">Reade user</label><br>
+                </div>
+                <div class="checkbox">
+                    <input type="radio" id="verified" name="by" value="verified">
+                    <label for="verified">Verified user</label>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class = "container">
+        <form id = "search-form">
+            <input type = "text" name = "q" placeholder="Search Post" />
+           
+        </form>
+    
+        
+        <div class="most">
+            <div id="search-content">
+                
+            </div>
+            <select name="most" id="most">
+                <option value="recent">Most Recent</option>
+                <option value="relevant">Most Relevant</option>
+                <option value="views">Most Views</option>
+            </select>
+        </div>
+    
+        <div id="post-container">
+    
+        </div>
+    </div>
+</div>
+
+
+    <script type = 'text/javascript' src = "{% static 'blog/js/blog_finder.js' %}"></script>
+
+{% endblock %}

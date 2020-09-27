@@ -1,0 +1,606 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_head_content %}
+<link rel = "stylesheet" type = "text/css" href = "{% static 'blog/css/blog.css' %}">
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script id = "addCommentTemplate" type = "text/x-handlebars-template">
+            
+    <div class = "comment">
+        {% verbatim %}
+        <div id = "main-comment-{{this.id}}" class = "comment-element main">
+        {% endverbatim %}
+            <div class = "comment-avatar">
+                <img src = "{{request.user.member.imageURL}}">
+            </div>
+            <div id = "comment-content-1" class = "comment-content">
+                <div class = "comment-username">
+                    {{request.user.member}}
+                </div>
+                {% verbatim %}
+                <div id = "main-comment-text-{{this.id}}" class = "comment-text">
+                    {{this.text}} 
+                </div>
+                <div class = "comment-edit-buttons" id = "main-edit-buttons-{{this.id}}"></div>
+                <div class = "comment-react">
+                    <a data-commentId = "{{this.id}}" status = "none" data-commentType = "main" class = "comment-thumbs-up" id = "comment-like-{{this.id}}">Like</a>
+                    <div id = "comment-like-count-{{id}}" class = "comment-like-count"> 0 </div>
+                    <a data-commentID = "{{this.id}}" data-subCommentId = "none"  id = "comment-reply-{{this.id}}" class = "comment-reply"> Reply</a>
+                </div>
+                <div class = "comment-utils ">
+                    <div id = "main-util-toggle-{{this.id}}" data-id ="{{this.id}}" data-type = "main" class = "comment-three-dot">
+                        <div class = "dot"></div>
+                        <div class = "dot"></div>
+                        <div class = "dot"></div>
+                    </div>
+                    <div id = "main-toggle-utils-{{this.id}}"class = "comment-utils-buttons hide">
+                        <div id = "main-edit-comment-{{this.id}}" class = "comment-edit">
+                            <span class = "edit-icon">&#128393</span> Edit
+                        </div>
+                        <div id = "main-remove-comment-{{this.id}}" class = "comment-remove">
+                            <span class = "remove-icon">&#128465</span> Remove
+                        </div>
+                    </div>  
+                </div>
+               <div id = "comment-input-{{this.id}}" class = "input"></div>
+               
+            </div>
+            
+        </div>
+        <div id = "reply-comment-{{this.id}}">
+
+        </div>
+        {% endverbatim %}
+    </div>
+    
+</script>
+
+<script id = "addCommentInputTemplate" type = "text/x-handlebars-template">
+        {% verbatim %}
+        <div id = "comment-form-{{this.id}}" class = "form-container">
+        {% endverbatim %}
+            <div class = "form-comment-avatar">   
+                <img class = "user-avatar" src = "{{request.user.member.imageURL}}">            
+            </div>
+        {% verbatim %}
+            <div id = "form" class = "form-comment">
+                <div id = "input-{{this.id}}" class = "form-comment-input pale-message" dir = "auto" contentEditable=true>Add comment</div>
+                <div id = "form-utils-{{this.id}}" class = "form-utils hide">
+                    <input id = "form-hide-{{this.id}}" type = "button" class = "form-hide" value="Hide"> 
+                    <button disabled="True" id ="form-submit-{{this.id}}" class = "form-submit"  type = "submit"> Add</button>
+                </div>
+            </div>
+        {% endverbatim %}
+        </div>
+</script>
+
+<script id = "addReplyCommentTemplate" type = "text/x-handlebars-template">
+    {% verbatim %}
+    <div id = "sub-comment-{{this.id}}" class = "comment-element sub">
+    {% endverbatim %}
+        <div class = "comment-verticalbar">
+            <div class = "verticalbar">    
+            </div>
+        </div>
+        <div class = "comment-avatar">
+            <img alt = "profileImg" src = "{{request.user.member.imageURL}}">
+        </div>
+        <div class = "comment-content">
+            <div class = "comment-username">
+                {{request.user.member}}
+            </div>
+            {% verbatim %}
+            <div id = "sub-comment-text-{{this.id}}" class = "comment-text">
+                {{this.text}}
+            </div>
+            <div class = "comment-edit-buttons" id = "sub-edit-buttons-{{this.id}}"></div>
+            <div class = "comment-react">
+                <a data-commentID = "{{this.id}}" status = "none"  data-commentType = "sub" class = "comment-thumbs-up" id = "subComment-like-{{this.id}}">Like</a>
+                <div id = "sub-comment-like-count-{{this.id}}" class = "comment-like-count"> 0 </div>
+                <div data-commentID = "{{this.mainId}}" data-subCommentId = "{{this.id}}" id = "replycomment-repy-{{this.id}}" class = "comment-reply"> Reply</div>
+            </div>
+            <div class = "comment-utils">
+                <div id = "sub-util-toggle-{{this.id}}" data-id = {{this.id}} data-type = "sub" class = "comment-three-dot">
+                    <div class = "dot"></div>
+                    <div class = "dot"></div>
+                    <div class = "dot"></div>
+                </div>
+                <div id = "sub-toggle-utils-{{this.id}}" class = "comment-utils-buttons hide">
+                    <div id = "sub-edit-comment-{{this.id}}" class = "comment-edit">
+                        <span class = "edit-icon">&#128393</span> Edit
+                    </div>
+                    <div id = "sub-remove-comment-{{this.id}}" class = "comment-remove">
+                        <span class = "remove-icon">&#128465</span> Remove
+                    </div>
+                </div>  
+            </div>
+            <div id = "subComment-input-{{this.id}}" class = "input"></div>
+            
+        </div>
+       
+        {% endverbatim %}
+    </div>
+    
+</script>
+
+<!-- Flash card handle-bars  -->
+<script id = "addCardTemplate" type = "text/x-handlebars-template">
+           
+    <div class="front side">
+        {% verbatim %}
+        
+        {{#if front_image_link}}
+        <div class="card-image" id = "card-image">
+            <img src = "{{this.front_image_link}}">
+        </div>
+        {{/if}}
+           
+       <div class="content">
+            <div class="title">
+                {{this.front_content}}
+            </div> 
+            {{#if front_description}}
+            <div class="description">
+                {{this.front_description}}
+            </div>
+        {{/if}}
+       </div>
+          
+            
+        {% endverbatim %}
+        
+    </div>
+    <div class="back side">
+        {% verbatim %}
+        
+        {{#if back_image_link}}
+        <div class="card-image" >
+            <img src = "{{this.back_image_link}}">
+        </div>
+        {{/if}}
+           
+       <div class="content">
+            <div class="title">
+                {{this.back_content}}
+            </div> 
+            {{#if back_description}}
+            <div class="description">
+                {{this.back_description}}
+            </div>
+        {{/if}}
+       </div>
+          
+            
+        {% endverbatim %}
+        
+    </div>
+
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="blog-banner">
+    <img src= "{{blog.imageURL}}" alt="img">
+    <div class = "banner-content">
+        <div class="blog-info">
+            <h1> {{blog.name}}</h1>
+            <div class="info">
+                <!-- <img src = "{{blog.author.imageURL}}"> -->
+               
+                <div class="author-avatar">
+                    <a href = "{% url 'user_home_page' blog.author.id 'post' %}">
+                         <img src= {{blog.author.imageURL}} alt="img">
+                    </a>
+                </div>
+               
+                <div class="detail-info">
+                    <div class="author-name">
+                        <div class="title">
+                            Author
+                        </div>
+                        <div class="content">
+                            <a href = "{% url 'user_home_page' blog.author.id 'post' %}">
+                                {{blog.author}}
+                            </a>
+                           
+                        </div>
+                    </div>
+                    <div class="published">
+                        <div class="title">
+                            Published
+                        </div>
+                        <div class="content">
+                            9 Sep, 2020
+                        </div>
+                    </div>
+                    <div class="views">
+                        <div class="title">
+                            Views
+                        </div>
+                        <div class="content">
+                            {{blog.getViews}}
+                        </div>
+                    </div>
+                    <div class="rate">
+                        <div class="title">
+                            Rate
+                        </div>
+                        <div id = "rate" class="content">
+                            {{blog.likes.all.count}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if request.user.member %}
+                <div class="utils">
+                    
+                    <a href = "{% url 'edit_blog' blog.id %}" class="edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a id = "delete-blog-btn" class="delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                    <div id="delete-box" class = "hide">
+                        <div class="text">This action will delete your blog permanently. 
+                            <br><span>Are you sure to proceed?</span>
+                        </div>
+                        <div class="buttons">
+                            <button id = "no-delete-post" class = "my-btn-safe">No</button>
+                            <button id = "delete-post" class = "my-btn-warning">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div  id = "blog-body" class="blog-body">
+    <div id = "tagbar" class="tagbar">
+        <a href = "#">#Attraction</a>
+        <a href = "#">#Travel</a>
+    </div>
+    
+ 
+    <div class="post">
+        
+        {{blog.body |safe}}
+    </div>
+
+    <div id =  "utils-bar" class = "utils-bar">
+        
+
+        <div id = "post-like-btn" class="likes">
+            {% if request.user.member in blog.likes.all %}
+            <i id = "ilike" class="fa fa-thumbs-up ilus remember"></i>
+            {% else %}
+                <i id = "ilike" class="fa fa-thumbs-up ilus"></i>
+            {% endif %}
+        </div>
+       
+        <div id = "share-btn" class="shares">
+            
+            {% if blog in request.user.member.saved_blog.all %}
+            
+            <i id = "save-icon" class=" ilus fas fa-bookmark remember"></i>
+            {% else %}
+            <i id = "save-icon" class=" ilus fas fa-bookmark"></i>
+            {% endif %}
+        </div>
+        <div id="group">
+            <i class="ilus fas fa-layer-group"></i>
+        </div>
+        <div id = "flash-card" class="flashcard">
+            <i class="ilus fas fa-bolt"></i>
+        </div>
+        <div id = "add-card" class = "add-card">
+            <i class="ilus fas fa-plus"></i>
+        </div>
+    </div>
+    
+    <div id = "group-board" class="group-board hide"> 
+        <div class="choose">
+            <div class="choose-title">
+                <div class="title">Save to ...</div>
+                <div id = "quit-group-board" class="quit-group-board">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="my-groups">
+                {% for group in request.user.member.my_group.all %}
+                    <div data-id = "{{group.id}}" class="my-group">{{group.name}}</div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="create">
+            <div id ="create-title" class="title">Or create a new group</div>
+            <form id = "my-group-form" class= "hide">
+                <input type = "text" name = "name" placeholder="Your group name">
+                <select name="fruit">
+                    <option value ="public">Public</option>
+                    <option value ="private">Private</option>   
+                </select> 
+                <input class = "my-btn my-btn-primary" type ="submit" value="Create"/> 
+            </form>
+        </div>
+    </div>
+    <div id = "addCardBoard" class = "add-card-container hide">
+        <div class = "utils">
+            <div id="how-to-card-btn">
+                <span class="fa fa-question" aria-hidden="true"></span>
+            </div>
+            <div id="add-card-btn">
+                <span class="fa fa-plus-circle" aria-hidden="true"></span>
+            </div>
+            <div id="close-card-btn">
+                <span id = "close-card-btn" class="fa fa-times" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class = "add-card-area row">
+            <div class="front col-lg-6">
+                <h1> Front</h1>
+                <div class = "require">
+                    <div class = "requiresymbol">(<span class = "sao">*</span>)</div>
+                    <input id = "front-content" type = "text"  placeholder="Your front content"/>
+                </div>
+                <input id = "front-imageLink" type = "text"  placeholder="Link to your image"/>
+                <textarea id ="front-description"  rows="12" cols="50" placeholder="Type your description here"></textarea>
+                
+            </div>
+            <div class="back col-lg-6">
+                <h1>Back</h1>
+                <div class = "require">
+                    <div class = "requiresymbol">(<span class = "sao">*</span>)</div>
+                    <input type = "text" id = "back-content" placeholder="Your back content"/>
+                </div>
+                <input type = "text" id = "back-imageLink" placeholder="Link to your image"/>
+                <textarea id="back-description" rows="12" cols="50" placeholder="Type your description here"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div id = "card-container" class = "card-container hide">
+        <div id="card-canvas" class = "card-canvas hide"></div>
+        <div class="info-board">
+            <div id="small-cards">
+
+            </div>
+            <div class="utils">
+                <div class="text process">
+                    <div class="title">
+                        Process
+                    </div>
+                    <div class="content">
+                        <div id="card-count">0</div>
+                        <div class="slash">/</div>
+                        <div id = "curTotal" class="total">{{blog.blog_flashcard.count}}</div>
+                    </div>
+                   
+                </div>
+                <div class="text times">
+                    <div class="title">
+                        Times
+                    </div>
+                    <div class="content">
+                        <div id = "time-count" class="count">0</div>
+                        
+                    </div>
+                </div>
+    
+                <a id = "quit-flashcard" href = "#" class = "my-btn my-btn-secondary"></a>
+            </div>
+        </div>
+        <div id = "card-show-content" class="card-show-content " >
+            
+            <div id="next" class = "hide">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+            <div id = "start-state" class="start-state">
+                <div class="blog-name">
+                    {{blog.name}}
+                </div>
+                
+                <a id = "start-card" href = "#" class = "my-btn my-btn-primary">Start</a>
+                <div id = "summary" class="summary hide">
+                    <div id = "my-process" class="my-process">
+                       
+                        80%
+                      
+                    </div>
+                    <div class="text">
+                        Click on the below boxes to re-learn.
+                    </div>
+                    <div class="summary-board">
+                        <div id="goodCards">
+                            0
+                        </div>
+                        <div id="mediumCards">
+                            0
+                        </div>
+                        <div id="badCards">
+                            0
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-comment">
+        
+        <hr class = "post-hr">
+        <div class = "input-board">
+            <div id = "main-form" class = "form-container main-form">
+                <div class = "form-comment-avatar">
+                {% if request.user.member %}
+                    <img class = "user-avatar" src = "{{request.user.member.imageURL}}">
+                
+                {% else %}
+                    <img class = "user-avatar" src = "{% static 'blog/images/user.png' %}">
+                {% endif %}
+                </div>                       
+                <div id = "form" class = "form-comment">
+                    <div  id = "main-form-input" class = "form-comment-input pale-message" dir = "auto" contentEditable=true>Add comment</div>
+                    <div id = "main-form-utils" class = "form-utils hide">
+                        <input id = "main-form-hide" type = "button" class = "form-hide" value="Hide"> 
+                        <button data-lectureId = "{{blog.id}}" disabled="True" id ="main-form-submit" class = "form-submit"  type = "submit"> Add</button>
+                    </div>
+                </div>
+            </div>
+            <div id = "comment-board" class = "comment-board">
+                <div id = "new-comment">
+
+                </div>
+                {% for comment in comments %}
+                <div class = "comment">
+                    <div id = "main-comment-{{comment.id}}">
+                        <div class = "comment-element main">
+                            <div class = "comment-avatar">
+                                <img alt = "profileImg" src = "{{comment.member.imageURL}}">
+                            </div>
+                            <div id = "comment-content-1" class = "comment-content">
+                                <div class = "comment-username">
+                                    {{comment.member}}
+                                </div>
+                                
+                                <div id = "main-comment-text-{{comment.id}}" class = "comment-text">
+                                    {{comment.text}}
+                                </div>
+                                <div class = "comment-edit-buttons" id = "main-edit-buttons-{{comment.id}}"></div>
+
+                                <div class = "comment-react">
+                                    {% if request.user.member in comment.likes.all %}
+                                    <a data-commentId = "{{comment.id}}" data-status = "liked" data-commentType = "main" id = "comment-thumbsup-{{comment.id}}" class = "comment-thumbs-up liked">Like</a>
+                                    {% else %}
+                                    <a data-commentId = "{{comment.id}}" data-status = "none" data-commentType = "main" id = "comment-thumbsup-{{comment.id}}" class = "comment-thumbs-up">Like</a>
+                                    {% endif %}
+                                    
+                                    <div id = "comment-like-count-{{comment.id}}" class = "comment-like-count"> {{comment.likes.count}} </div>
+                                    <a data-commentID = "{{comment.id}}" data-subCommentId = "none" class = "comment-reply"> Reply</a>
+                                </div>
+                                {% ifequal request.user.member comment.member %}
+                                <div class = "comment-utils ">
+                                    <div data-id ="{{comment.id}}" data-type = "main" class = "comment-three-dot">
+                                        <div class = "dot"></div>
+                                        <div class = "dot"></div>
+                                        <div class = "dot"></div>
+                                    </div>
+                                    <div id = "main-toggle-utils-{{comment.id}}"class = "comment-utils-buttons hide">
+                                        <div id = "main-edit-comment-{{comment.id}}" class = "comment-edit">
+                                            <span class = "edit-icon">&#128393</span> Edit
+                                        </div>
+                                        <div id = "main-remove-comment-{{comment.id}}" class = "comment-remove">
+                                            <span class = "remove-icon">&#128465</span> Remove
+                                        </div>
+                                    </div>  
+                                </div> 
+                                {% endifequal %}
+
+                                <div id = "comment-input-{{comment.id}}" class = "input"></div>
+                            </div>   
+                        </div>
+                        {% if comment.reply_comment.first %}
+                        <div class = "show-reply-comment" data-id = "{{comment.id}}" id = "show-reply-comment-{{comment.id}}">
+                            Replies ({{comment.reply_comment.count}})
+                        </div>
+                        {% endif %}
+                    </div>
+                        <!-- Reply comment toggle show -->
+                        <div id = "reply-comment-container-{{comment.id}}" class = "hide">
+                        {% for sub in comment.reply_comment.all %}
+                            <div id = "sub-comment-{{sub.id}}" class = "comment-element sub">
+                                <div class = "comment-verticalbar">
+                                    <div class = "verticalbar">    
+                                    </div>
+                                </div>
+                                <div class = "comment-avatar">
+                                    <img alt = "profileImg" src = "{{sub.member.imageURL}}">
+                                </div>
+                                <div class = "comment-content">
+                                    <div class = "comment-username">    
+                                        {{sub.member}}
+                                    </div>
+                                    <div id = "sub-comment-text-{{sub.id}}" class = "comment-text">
+                                        {{sub.text}}
+                                    </div>
+                                    <div class = "comment-edit-buttons" id = "sub-edit-buttons-{{sub.id}}"></div>
+                                    <div class = "comment-react">
+                                        {% if member in sub.likes.all %}
+                                            <a data-commentId = "{{sub.id}}" data-status = "liked" data-commentType = "sub" class = "comment-thumbs-up liked">Like</a>
+                                        {% else %}
+                                            <a data-commentId = "{{sub.id}}" data-status = "none" data-commentType = "sub" class = "comment-thumbs-up">Like</a>
+                                        {% endif %}
+                
+                                        <div id = "sub-comment-like-count-{{sub.id}}" class = "comment-like-count">  {{sub.likes.count}} </div>
+                                        <div data-commentID = "{{comment.id}}" data-subCommentId = "{{sub.id}}" class = "comment-reply"> Reply</div>
+                                    </div>
+                                    
+                                    {% ifequal request.user.member sub.member %}
+                                    <div class = "comment-utils">
+                                        <div data-id = {{sub.id}} data-type = "sub" class = "comment-three-dot">
+                                            <div class = "dot"></div>
+                                            <div class = "dot"></div>
+                                            <div class = "dot"></div>
+                                        </div>
+                                        <div id = "sub-toggle-utils-{{sub.id}}" class = "comment-utils-buttons hide">
+                                            <div id = "sub-edit-comment-{{sub.id}}" class = "comment-edit">
+                                                <span class = "edit-icon">&#128393</span> Edit
+                                            </div>
+                                            <div id = "sub-remove-comment-{{sub.id}}" class = "comment-remove">
+                                                <span class = "remove-icon">&#128465</span> Remove
+                                            </div>
+                                        </div>  
+                                    </div>
+                                    {% endifequal %}
+                                   
+                                    <div id = "subComment-input-{{sub.id}}" class = "input"></div>
+                                </div>
+                                
+                            </div>
+                        {% endfor %}
+                        
+                        </div>
+                        <div id = "reply-comment-{{comment.id}}">
+
+                        </div>
+                </div>
+             
+                {% endfor %}
+                    <!-- Handlebars -->
+                
+               
+            </div>
+        </div>
+
+
+    </div>
+    <div class = "suggest-blog">
+        <div class = "sg-element">
+
+        </div>
+        <div class = "sg-element">
+            
+        </div>
+    </div>
+    
+   
+</div>
+
+
+<div id = "data-transfering" data-postId = "{{blog.id}}" ></div>
+<div id = 'canvas' class = "hide">
+<div id = "delete-alert-box" class = "delete-alert-box hide">
+    <div class = "message"> 
+        This content will be deleted permanently. </br>
+        <span class= "message-warning">Continue your action?</span>
+    </div>
+    <div class = "utils" id = "util-buttons">
+        <button  class = "no btn safe"> No</button>
+        <button  class = "yes btn warning">Yes</button>
+    </div>
+</div>
+
+<script type = 'text/javascript' src = "{% static 'blog/js/blog.js' %}"></script>
+{% endblock %}

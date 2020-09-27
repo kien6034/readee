@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block extra_head_content %}
+<link rel = "stylesheet" type = "text/css" href = "{% static 'blog/css/blog_set.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="title">
+            {{group.name}}
+        </div>
+        <hr>
+       <div class="posts">
+        <div class="row">
+            {% for post in group.blogs.all %}
+            <div class="element col-lg-6 col-xl-4">
+               <div class="post">
+                <a href= "{% url 'blog' post.id %}" >
+                    <div class="image">
+                        <img src=" {{post.imageURL}}" alt="image">
+                    </div>
+                    <div class="content">
+                        <div class="post-title">
+                            {{post.name}}
+                        </div>
+                        <div class="info">
+                            <div class="author">
+                                {{post.author.user.username}}
+                            </div>
+                            <div class="views">
+                                {{post.views}} views
+                            </div>
+                        </div>
+                        <div class="bar"></div>
+                        
+                    </div>
+                </a>
+               </div>
+            </div>
+            {% endfor %}
+        </div>
+           
+       </div>
+       
+    </div>
+{% endblock %}

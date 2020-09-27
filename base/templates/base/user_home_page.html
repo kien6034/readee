@@ -1,0 +1,110 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_head_content %}
+
+<link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/user_home_page.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <div class="body">
+        <div id = "sidebar" class="sidebar">
+            <a href = "{% url 'add_blog' %}"id = "add-post" class="add-post">
+                <div class="icon">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="title">
+                    Add Post
+                </div>    
+            </a>
+            
+            <a href = "{% url 'all_cards' %}" >
+                <div class="icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="title">
+                    Flash Card
+                </div>    
+            </a>
+           
+            <a href = "{% url 'user_home_page' request.user.member.id 'post' %}"  >
+                <div class="icon">
+                    <i class="fas fa-house-user"></i>
+                </div>
+                <div class="title">
+                    My posts
+                </div>    
+            </a>
+          
+            <a href = "{% url 'user_home_page' request.user.member.id 'saved' %}">
+                <div class="icon">
+                    <i class="fas fa-bookmark"></i>
+                </div>
+                <div class="title">
+                    Saved
+                </div>    
+            </a>
+          
+            <a href = "{% url 'sets' %}" class="group-post">
+                <div class="icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <div class="title">
+                    Sets
+                </div>
+            </a>
+        </div>
+        <div class="content">
+            <div class="search">
+                <div class="title"> {{title}}</div>
+                <form method="GET" action = ''>
+                    <input type = "text" name = "q" placeholder="Search Post" value = "{{request.GET.q}}"/>
+                </form>
+            </div>
+            
+            <div class="my-posts">
+               
+                <div class="posts">
+                {% for post in posts %}
+                    <a href= "{% url 'blog' post.id %}" class="post">
+                        <div class="p">
+                            <div class="post-image">
+                                <img src= "{{post.imageURL}}" alt="img">
+                            </div>
+                            <div class="post-content">
+                                <div class="name">
+                                    {{post.name}}
+                                </div>
+                                <div class="info">
+                                    <div class="views">
+                                        {{post.views}} views
+                                    </div>
+                                    <div class="seperate-bar">
+                                        
+                                    </div>
+                                    <div class="data">
+                                        {{post.created}}
+                                    </div>
+                                </div>
+                                
+                                {% if post.description %}
+                                <div class="bar"></div>
+                                <div class="descrip">
+                                    {{post.description}}
+                                </div>
+                                {% endif %}
+                                
+                                
+                            </div>
+                        </div>
+                    </a> 
+                {% endfor %}    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id = "mem-info" data-id = "{{request.user.member.id}}"></div>
+   
+    <script type = 'text/javascript' src = "{% static 'base/js/user_home_page.js' %}"></script>
+{% endblock %}

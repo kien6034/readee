@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_head_content %}
+
+<link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/add_blog.css' %}">
+<script type = 'text/javascript' src = "{% static 'base/js/add_blog.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% if request.user.member %}
+<div class="my-container">
+    <form action ="" method = "POST">
+        {% csrf_token %}
+            {{ form.media}}
+            {{ form}}
+    <input type = "submit" value = "Save">
+    </form>
+    <div class="instruction">
+        <div class="instruct-title">How to make your post look better?</div>
+        <div class="images element">
+            <div class="title">Image</div>
+            <img src = "{% static 'base/images/instruct-img.png' %}">
+            <div class="description">
+                Your blog-image will be used in a rectangular frame for blog's layout purpose. 
+                The width of the image will always be equal to the width of the frame. 
+                On the other hand, if the height of the image exceeds the height of the frame, the frame will be put in the center of the image   <br>
+                <span class = "note"> You should choose the image in a horizontal rectangular shape and with height resolution (recommended: 2048 x 1152 px)
+                    for better performance.
+                </span>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+    Not authorized
+{% endif %}
+{% endblock %}

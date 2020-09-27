@@ -1,0 +1,69 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_head_content %}
+
+<link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/login.css' %}">
+<script type = 'text/javascript' src = "{% static 'base/js/login.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div id = "login-container" class = "login-container">
+    
+        <div id = "message">
+            {% if message %}
+            {{message}}
+            {% endif %}
+        </div>
+   
+    
+
+    <div class = "logo">
+        <img src = "{% static 'base/svg/logo.svg' %}">
+        <div class = "text">
+            Reade
+        </div>
+    </div>
+    <form  action = "{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <input name = "username" type = "text" placeholder="Username"/>
+        <input name = "password" type = "password" placeholder="Password"/>
+        <button type="submit" class="btn btn-primary">Submit</button>  
+    </form>
+    <div class = "utils">
+        <a href = "#" class = "forgot slight-pale slight-small"> Forgot Password? </a>
+        <a id = "signup-direct" class = "signup slight-pale slight-small">Sign up</a>
+    </div>
+    <div class = "or pale small margin-bottom"> or you can sign in with</div>
+
+    <div class = "social-account">
+        <a><button class = "btn facebook">Facebook</button></a> 
+        
+        <a href = "#"><button class = "btn google">Google</button></a>
+    </div>
+</div>
+    
+<!-- url 'social:begin' 'facebook'  -->
+<div id = "signup-container" class = "signup-container">
+    <div class = "logo">
+        <img src = "{% static 'base/svg/logo.svg' %}">
+        <div class = "text">
+            7Haifai
+        </div>
+    </div>
+    <form action ="#" id = "signup-form" >
+        <input required name = "username" type = "text" placeholder="Username"/>
+        <div id = "username-message" class = "message-warning"></div>
+        <input required name = "password" type = "password" placeholder="Password"/>
+        <div id = "password-message" class = "message-warning"></div>
+        <input required name = "confirmPassword" type = "password" placeholder="Confirm password"/>
+        <div id = "confirm-password-message" class = "message-warning"></div>
+        <input required name = "email" type = "email" placeholder="E-mail address"/>
+        <div id = "email-message" class = "message-warning"></div>
+        <button id = "submit-btn" class="btn btn-primary">Sign Up</button>  
+        
+    </form>
+    <div class = "or pale small"> Have an account? <a id = "signin-direct"> Sign In</a></div>
+</div>
+
+
+{% endblock content %}

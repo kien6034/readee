@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block extra_head_content %}
+<link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/all_cards.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+       <h1> Flashcard's Sets</h1>
+        <div class="row">
+            {% for set in sets %}
+            <div class="col-xl-4 element">
+                <div class="card">
+                    <div class="image">
+                        <img src="{{set.blog.imageURL}}" alt="set's image">
+                        <div class="up-layer">
+                           
+                            <div class="show-num">
+                                <div class="icon"><i class="fas fa-bolt"></i></div>
+                                <div class="count">{{set.cards.count}} </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            {{set.blog.name}}
+                        </div>
+                        <hr>
+                        <div class="details">
+                            <a href = "{% url 'view_card' set.id %}" class="view">
+                                <div class="icon">
+                                    <i class="fas fa-list-alt"></i>
+                                </div>
+                                <div class="title">View Cards</div>
+                            </a>
+                            <a href = "{% url 'blog' set.blog.id %}" class="learn">
+                                <div class="icon">
+                                    <i class="fas fa-broom"></i>
+                                </div>
+                                <div class="title">Let's learn</div>
+                            </a>
+                            
+                        </div>
+                    </div>
+         
+                   
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        
+    </div>
+{% endblock %}

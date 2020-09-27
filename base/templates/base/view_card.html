@@ -1,0 +1,113 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block extra_head_content %}
+
+<link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/view_card.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <div id = "delete-alert-box" class = "delete-alert-box hide">
+        <div class = "message"> 
+            This content will be deleted permanently. </br>
+            <span class= "message-warning">Continue your action?</span>
+        </div>
+        <div class = "buttons" id = "util-buttons">
+            <button id = "no-btn" class = "my-btn-safe"> No</button>
+            <button id = "yes-btn" class = "my-btn-warning">Yes</button>
+        </div>
+    </div>
+    <h1> {{name}}</h1>
+    <div class="container">
+        <div class="row">
+            {% for card in cards %}
+            <div class="col-12 col-lg-6 col-xl-4 element">
+                <div id = "{{card.id}}" class = "card">
+                    <div class="bar">
+                         <div data-id = "{{card.id}}" class="edit-card">
+                             <i class="fas fa-edit"></i>
+                         </div>
+                        <div data-id = "{{card.id}}" class="delete-card">
+                             <i class="fas fa-trash-alt"></i>
+                        </div>
+                    </div>
+                    <div class="display">
+                         <div class="slider">
+                             <div class="front">
+                                 {% if card.front_image_link %} 
+                                 <div class="image">
+                                     <img src="{{card.front_image_link}}" alt="">
+                                 </div>
+                                 {% else %}
+                                 <div class="image hide">
+                                    <img src="" alt="">
+                                 </div>
+                                 {% endif %}
+                                 <div class="content">
+                                     <div class="title">{{card.front_content}}</div>
+                                     <div class="description">{{card.front_description}}</div>
+                                 </div>
+                             </div>
+                             <div class="back">
+                                 {% if card.back_image_link %}
+                                 <div class="image">
+                                     <img src="{{card.back_image_link}}" alt="">
+                                 </div>
+                                 {% else %}
+                                 <div class="image hide">
+                                    <img src="" alt="">
+                                 </div>
+                                 {% endif %}
+                                 <div class="content">
+                                     <div class="title">{{card.back_content}}</div>
+                                     <div class="description">{{card.back_description}}</div>
+                                 </div>
+                             </div>
+                            
+                         </div>
+                     </div>
+                 </div>
+            </div>
+            <div id = "addCardBoard-{{card.id}}" class = "add-card-container hide">
+                <div class = "utils">
+                    <div class="how-to-card-btn">
+                        <span class="fa fa-question" aria-hidden="true"></span>
+                    </div>
+                    <div class="add-card-btn">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <div class="close-card-btn">
+                        <span class="fa fa-times" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class = "add-card-area">
+                    <div class="front">
+                        <h1> Front</h1>
+                        <div class = "require">
+                            <div class = "requiresymbol">(<span class = "sao">*</span>)</div>
+                            <input id = "front-content" type = "text"  placeholder="Your front content"/>
+                        </div>
+                        <input class = "imgLink" id = "front-imageLink" type = "text"  placeholder="Update or add link to your image!"/>
+                        <textarea id ="front-description"  rows="12" cols="50" placeholder="Type your description here"></textarea>
+                        
+                    </div>
+                    <div class="back">
+                        <h1>Back</h1>
+                        <div class = "require">
+                            <div class = "requiresymbol">(<span class = "sao">*</span>)</div>
+                            <input type = "text" id = "back-content" placeholder="Your back content"/>
+                        </div>
+                        <input class = "imgLink" type = "text" id = "back-imageLink" placeholder="Update or add link to your image!"/>
+                        <textarea id="back-description" rows="12" cols="50" placeholder="Type your description here"></textarea>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        
+        
+        <script type = 'text/javascript' src = "{% static 'base/js/view_card.js' %}"></script>
+    </div>
+
+   
+{% endblock %}

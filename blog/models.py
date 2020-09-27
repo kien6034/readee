@@ -1,0 +1,114 @@
+from django.db import models
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils import timezone
+from base.models import Member
+from datetime import datetime, timedelta, timezone
+
+# Create your models here.
+
+class Blog(models.Model):
+    author = models.ForeignKey(Member, on_delete= models.CASCADE, related_name= "author_blog")
+    name = models.CharField(max_length=256)
+    image = models.ImageField(blank = True, null = True)
+    body = RichTextUploadingField()
+    description = models.TextField(blank = True, null= True)
+    views = models.IntegerField(default=0)
+    public_state = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    likes = models.ManyToManyField(Member, blank = True, related_name= "liked_blog")
+    saved_by = models.ManyToManyField(Member, blank = True, related_name= "saved_blog")
+
+    @property 
+    def imageURL(self):
+        try:
+            url = self.image.url 
+        except:
+            url = 'data:image/jpeg;base64,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'
+        return url
+
+    @property
+    def getViews(self):
+        return self.views
+    
+    @property
+    def pcreated(self):
+        a = datetime.now(timezone.utc) - self.created
+
+        distance = int(a.total_seconds() / 60)
+        if distance < 60:
+            return f"{distance} minutes ago"
+
+        elif distance >= 60 and distance  < 60 * 24:
+            hours = int(distance/60)
+            return f"{hours} hours ago"
+        elif distance >= 60*24 and distance < (60* 24 *30):
+            days = int(distance /(60 *24))
+            return f"{days} days ago"
+        
+        return self.created.strftime("%d %b, %Y")
+        #return self.created.strftime("%d %b, %Y")
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+class Comment(models.Model):
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, blank = True, null = True, related_name='comments')
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, blank = True, null = True, related_name='comment')
+    text = models.TextField()
+    likes = models.ManyToManyField(Member, blank = True, related_name= "liked_comments")
+
+    def __str__(self):
+        return f"{self.member} - {self.text}"
+
+class ReplyComment(models.Model):
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE, blank = True, null = True, related_name='reply_comment')
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, blank = True, null = True, related_name='user_reply_comment')
+    text = models.TextField()
+    likes = models.ManyToManyField(Member, blank = True, related_name= "liked_subComments")
+
+    def __str__(self):
+        return f"{self.member} - {self.text} - of comment {self.comment.id}"
+
+
+
+
+class CardSet(models.Model):
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="my_set")
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="card_set")
+    status = models.BooleanField(default = False)
+
+class FlashCard(models.Model):
+    card_set = models.ForeignKey(CardSet, on_delete=models.CASCADE, related_name= 'cards')
+    front_content = models.CharField(max_length=256)
+    front_image_link = models.TextField(null = True, blank = True)
+    back_content = models.CharField(max_length=256)
+    front_description = models.TextField(null = True, blank=True)
+    back_description = models.TextField(null = True, blank=True)
+    back_image_link = models.TextField(null = True, blank = True)
+
+class BlogCluster(models.Model):
+    blogs = models.ManyToManyField(Blog, blank = True, related_name='cluster')
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name="my_group")
+    name = models.CharField(max_length=256)
+    created = models.DateTimeField(auto_now_add=True, null = True)
+    public_state = models.BooleanField(default=True)
+    description = models.TextField(null = True, blank = True)
+    totalViews = models.IntegerField(default=0)
+    @property
+    def getViews(self):
+        views = 0
+        for blog in self.blogs.all():
+            views += blog.views
+        self.totalViews = views
+        self.save()
+        return views
+
+    @property
+    def getNumOfBlogs(self):
+        return len(self.blogs.all())
+
+    def __str__(self):
+        return f"{self.name}"

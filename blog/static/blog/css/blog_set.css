@@ -1,0 +1,84 @@
+body {
+  background: #f0f0f0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container .title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 200%;
+  font-weight: 500;
+  color: #222;
+}
+
+.container hr {
+  margin-bottom: 70px;
+}
+
+.container .posts .element {
+  margin: 0;
+  padding: 20px;
+}
+
+.container .posts .element .post {
+  position: relative;
+  background-color: white;
+  -webkit-box-shadow: 0 0 2px 2px #e7e7e7;
+          box-shadow: 0 0 2px 2px #e7e7e7;
+  height: 300px;
+}
+
+.container .posts .element .post .image {
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.container .posts .element .post .image img {
+  width: 100%;
+  height: 100;
+}
+
+.container .posts .element .post .content {
+  height: 30%;
+  overflow: hidden;
+}
+
+.container .posts .element .post .content .post-title {
+  font-size: 140%;
+  font-weight: 500;
+  margin: 0;
+  margin-left: 3%;
+}
+
+.container .posts .element .post .content .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .posts .element .post .content .info .author {
+  font-style: italic;
+}
+
+.container .posts .element .post .content .info * {
+  margin-left: 3%;
+  margin-right: 5%;
+}
+
+.container .posts .element .post .content .bar {
+  margin-top: 5px;
+  height: 2px;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#d3d31f), to(orange));
+  background-image: linear-gradient(to right, #d3d31f, orange);
+}
+/*# sourceMappingURL=blog_set.css.map */

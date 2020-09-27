@@ -1,0 +1,275 @@
+body{
+    background: rgb(240, 240, 240);
+}
+
+h1{
+    margin-top: 80px;
+    text-align: center;
+}
+.container{
+    .row{
+        width: 100%;
+       .element{
+            padding: 3%;
+            .card{
+                padding: 0;
+            
+                height: 400px;
+                background: white;
+                box-shadow: 0 0 1px 1px grey;
+                .bar{
+                    background: rgb(209, 207, 207);
+                    box-shadow: 0 0 2px 1px rgb(105, 105, 105);
+                    height: 35px;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    div{
+                        cursor: pointer;
+                        margin-right: 7px;
+                        color: #333;
+                    }
+                    div:hover{
+                        color: #000;
+                    }
+        
+                }
+                .display{
+                    position: relative;
+                    
+                    width: 100%;
+                    height: 365px;
+                    overflow: hidden;
+                    .slider{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 200%;
+                        width: 100%;
+                        transition: transform 0.5s ease-out;
+                        
+                        .front, .back{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            .image{
+                                width: 100%;
+                                height: 200px;
+                                border: 1px solid grey;
+                                display: flex;
+                                align-items: center;
+                                overflow: hidden;
+                                img{
+                                    width: 100%;
+                                    min-height: 100%;
+                                }
+                            }
+                            .content{
+                                padding: 20px;
+                                height: 165px;
+                                
+                                display: flex;
+                                flex-direction: column;
+                            
+                                align-items: center;
+                                .title{
+                                    margin-bottom: 10px;
+                                    font-size: 130%;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                        .front{
+                            overflow: hidden;
+                            height: 50%;
+                            width: 100%;
+                            
+                        }
+                        .back{
+                            overflow: hidden;
+                            height: 50%;
+                            width: 100%;
+                            
+                            
+                        }
+                    }
+                }
+            }
+       }
+    }
+    
+    
+    .display:hover{
+        .slider{
+            transform: translateY(-50%);
+        }
+    }
+}
+
+.delete-alert-box{
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 350px;
+    background-color: white;
+    box-shadow: 0 0 2px 2px rgb(151, 149, 149);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    .message{
+        text-align: center;
+        .message-warning{
+            color: red;
+            font-style: italic;
+        }
+    }
+    .utils{
+        *{
+            margin: 15px;
+        }
+    }
+}
+
+.canvas{
+    position: fixed;
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 50;
+}
+.buttons{
+    button{
+        margin: 20px;
+        padding: 5px 8px 5px 8px;
+        outline: none;
+        width: 80px;
+        border-radius: 5px;
+    }     
+}
+
+//using flex 
+//===================Add card css ==============
+
+.add-card-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width:80%;
+    background-color: rgb(236, 232, 232);
+    z-index: 100;
+    box-shadow: 0 0 2px 1px grey;
+    h1{
+        margin-top: 15px;
+    }
+    .add-card-area{
+        display: grid;
+        position: absolute;
+        top: 52px;
+        width: 100%;
+        height: calc(100% - 52px);
+        overflow: auto;
+        grid-template-columns: 1fr 1fr;
+    .require{
+        position: relative;
+        .requiresymbol{
+            position: absolute;
+            top:20px;
+            left: 10px;
+            color: rgb(236, 37, 37);
+            .sao{
+                position: relative;
+                top: 2px;
+            }
+        }
+    }
+    input{
+        width: 80%;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+        outline:none;
+    }
+    textarea{
+        width: 80%;
+        min-width: 60%;
+        margin-top: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 10px;
+        outline:none;
+    }
+    input:focus, textarea:focus{
+        background-color: rgb(247, 240, 240);
+    }
+    .front{
+        background-color: rgb(179, 227, 240);
+        text-align: center;
+        border-right: 1px solid rgb(177, 176, 176);
+    }
+    .back{
+        background-color: rgb(243, 236, 169);
+        text-align: center;
+    }
+    }
+    .utils{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 50px;
+        background-image: linear-gradient(to right, rgb(0, 77, 139), rgb(172, 93, 2));
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 1px rgb(187, 181, 181);
+        div{
+            cursor: pointer;
+            margin: 0 15px 0 15px;
+            font-size: 20px;
+            color: rgb(192, 189, 189);
+        }
+        div:hover{
+            color: rgb(255, 255, 255);
+        }
+        .add-card-btn{
+            color: rgb(224, 223, 223);
+            font-size: 35px;
+        }
+        div:active{
+            color: rgb(250, 230, 194);
+            position: relative;
+            top: 1px;
+        }
+        .add-card-btn:active{
+            color: rgb(240, 191, 101) !important;
+        }
+    }
+}
+
+.warning-border{
+    border: 2px solid rgb(228, 51, 51) !important;
+}
+
+// ====================end add card csss ==============
+
+@keyframes remove{
+    from{
+        opacity: 1;
+        height: 300px;
+        width: 200px;
+    }
+    to{
+        opacity: 0;
+        height: 0;
+        width: 0;
+        display: none;
+    }
+}

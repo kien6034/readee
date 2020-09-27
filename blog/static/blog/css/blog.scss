@@ -1,0 +1,1217 @@
+$body-background: #232a36;
+$blog-comment-background: #181c24;
+.blog-banner{
+    height: 300px;
+    width: 100%;
+    position: relative;
+    background: grey;
+    display: flex;
+    align-items: center;
+    overflow:hidden;
+    img{
+        width: 100%;
+    }
+    .banner-content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(8, 8, 8, 0.6);
+       
+        .blog-info{
+            margin-top: 30px;
+            margin-left: 5%;
+            h1{
+                color: rgb(226, 223, 223);
+                text-shadow: 2px 2px #070707;
+            }
+            .info{
+                margin-top: 20px;
+                color: rgb(209, 204, 204);
+                display: flex;
+               .author-avatar{
+                   background-color: rgb(255, 255, 255);
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    border: 1px solid grey;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        height: 50px;
+                        width: 50px;
+                    }
+               }
+               .detail-info{
+                   margin-left: 30px;
+                   display: flex;
+                   div{
+                       margin-right: 20px;
+                       display: flex;
+                       flex-direction: column;
+                       justify-content: center;
+                       align-items: center;
+                       .title{
+                            color: rgb(238, 166, 31);
+                       }
+                       .content{
+                            color: rgb(241, 238, 238);
+                       }
+                   }
+               }
+            }
+            .utils{
+                margin-top: 40px;
+                display: flex;
+                color: rgb(189, 188, 188);
+                padding-left: 5px;
+                a{
+                    cursor: pointer;
+                    margin-right: 13px;
+                }
+                a:hover{
+                    color: white;
+                }
+                #delete-box{
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: 300px;
+                    width: 430px;
+                    padding: 20px;
+                    background-color: white;
+                    z-index: 100;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    .text{
+                        color: #222;
+                        text-align: center;
+                        span{
+                            color: red;
+                        }
+                    }
+                        
+                }
+                .buttons{
+                    button{
+                        margin: 20px;
+                        padding: 5px 8px 5px 8px;
+                        outline: none;
+                        width: 80px;
+                        border-radius: 5px;
+                    }     
+                }
+            }
+        }
+    }
+}
+
+.blog-body{
+    background: $body-background;
+    position: relative;
+    padding-bottom: 200px;
+    min-height: 120vh;
+    .tagbar{
+        height: 70px;
+        width: 75%;
+        border-radius: 10px;
+        background-image: linear-gradient(to right, rgb(196, 128, 28) , rgb(223, 99, 16));
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        padding-left: 5%;
+        a{
+            margin-left: 30px;
+            text-decoration: none;
+            color: white;
+        }
+    }
+    .post{
+        width:65%;
+        transform: translateY(-55px);
+        border-radius: 15px;
+        background: white;
+        margin-left: 100px;
+        box-shadow: 2px 2px rgb(61, 60, 60);
+        padding: 40px;
+        padding-bottom: 80px;
+    
+    }
+    .utils-bar{
+        background: $body-background;
+        color: white;
+        position: absolute;
+        top: 35px;
+        left:0;
+        height: 100vh;
+        width: 100px;
+        z-index: 20;
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        div{
+            margin-bottom: 50px;
+        }
+        .ilus{
+          
+            color: grey;
+            cursor: pointer;
+        }
+        .remember{
+            color: rgb(230, 99, 13) !important;
+        }
+        .add-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          
+        }
+    }
+   
+
+
+    .suggest-blog{
+        position: absolute;
+        right: 2%;
+        top: 20px;
+        width: 300px;
+        .sg-element{
+            margin: 20px;
+            height: 300px;
+            width: 100%;
+            background: #FAF6F6;
+            border-radius: 10px;
+            
+        }
+    }
+}
+
+
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+//=================Style layout property for comment ======================
+.blog-comment{
+    color: rgb(238, 236, 236);
+    background-color: $blog-comment-background;
+    width: 65%;
+    margin-left: 100px;
+    margin-bottom: 100px;
+    padding: 20px;
+}
+//================end style layout property for comment ============
+
+//=================CSS for comment ======================
+
+$neutral-color: rgb(35, 89, 126);
+$warning-color: rgb(184, 74, 74);
+$safe-color: #4CAF50;;
+
+$focus-background: rgb(240, 238, 238);
+
+.delete-alert-box{
+    z-index: 20;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 350px;
+    background-color: white;
+    box-shadow: 0 0 2px 2px rgb(56, 55, 55);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    .message{
+        text-align: center;
+        .message-warning{
+            color: red;
+            font-style: italic;
+        }
+    }
+    .utils{
+        *{
+            margin: 15px;
+        }
+    }
+}
+a{
+    text-decoration: none !important;
+    
+}
+.editable-textArea{
+    border: 1px solid black;
+    padding: 5px 10px 5px 10px;
+    border-radius: 15px;
+    outline: none;
+}
+
+#canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(17, 17, 17);
+    opacity: 0.9;
+    z-index: 50;
+}
+
+
+.blog-comment{
+    h1{
+        font-size: 200%;
+    }
+    .input-board{
+        .form-container{
+            display: flex;
+            margin-bottom: 20px;
+            .form-comment-avatar{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow:hidden;
+                img{
+                    width:90%;
+                    height: 90%;
+                }
+            }
+            .form-comment{ 
+                margin-top: 10px;
+                position: relative;
+                width: calc(100% - 150px);
+                flex-direction: column;
+                margin-left: 30px;
+                .form-comment-input{
+                    width:100%;
+                    min-width: 0;
+                    border: 1px solid black;
+                    padding: 5px 10px 5px 10px;
+                    overflow-wrap: break-word;
+                    border-radius: 15px;
+                    outline: none;
+                }
+                .form-comment-input:focus{
+                    background-color: rgb(222, 230, 230);
+                }
+                .form-utils{
+                    width:100%;
+                    display: flex;
+                    margin-top: 10px;
+                    justify-content: flex-end;
+                  
+                    *{
+                        padding: 5px 10px 5px 10px;
+                        margin-left: 10px;
+                        border-radius: 10px;
+                        border: 1px solid rgb(110, 107, 107);
+                        outline: none;
+                        min-width:70px;
+                        font-size: 15px;
+                    }
+                    *:hover{
+                        border: 1px solid black;
+                    }
+                    *:active{
+                        position: relative;
+                        top: 1px;
+                    }
+                    .form-hide{
+                       background-color: rgb(189, 188, 188);
+                    }
+                    .submitable{
+                        background-color: $neutral-color;
+                        color: white;
+                    }
+                }
+            }
+        }
+        .main-form{
+            .form-comment{
+                .form-comment-input{
+                    border: none;
+                    border-bottom: 1px solid grey !important;
+                    border-radius: 0;
+                }
+                .form-comment-input:focus {
+                    border-bottom: 2px solid rgb(58, 57, 57) !important;
+                    background: rgb(221, 220, 220);
+                }
+                
+            }
+        }
+    }
+    .comment-board{
+        position: relative;
+        width: 100%;
+        
+        .comment-element{
+            width: 100%;
+            
+            color: rgb(221, 221, 221);
+            display: flex;
+            padding: 10px;
+            .comment-verticalbar{
+                .verticalbar{
+                    position: relative;
+                    width: 5px;
+                    height: 100%;
+                    background-color: rgb(42, 130, 245);
+                    margin: 0 35px 0 25px;
+                }
+            }
+            .comment-avatar{
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                background-color: rgb(247, 243, 243);
+                img{
+                   height: 100%;
+                   width: 100%;
+                }
+            }
+            .comment-content{
+                position: relative;
+                width: calc(100% - 79px);
+                margin-left: 20px;
+                .comment-username{
+                    font-weight: bold;
+                    //TODO: cursor: pointer;
+                }
+                .comment-text{
+                    width: calc(100% - 70px);
+                }
+                .comment-edit-buttons{
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-right: 50px;
+                    *{
+                        margin: 10px 20px 0 0;
+                    }
+                }
+                .comment-text:focus{
+                    background-color: $focus-background;
+                }
+                .comment-react{
+                    display: flex;
+                    font-size: 90%;
+                    padding-left: 2px;
+                    *{
+                        margin-right: 10px;
+                    }
+                    .comment-thumbs-up{
+                        cursor: pointer;
+                    }
+                    .comment-reply{
+                        cursor: pointer;
+                    }
+                    .comment-reply:hover, .thumbs-up:hover{
+                        color: rgb(243, 243, 243);
+                    }
+                }
+                .comment-utils{
+                    width: 20px;
+                    height: 30px;
+                    position: absolute;
+                    top: 0px;
+                    right: 30px;
+                    opacity: 0;
+                    .comment-three-dot{
+                        cursor: pointer;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 30px; 
+                        height: 30px; 
+                        border-radius: 50%;
+                        .dot{
+                            margin-top: 2px;
+                            height: 4px;
+                            width: 4px;   
+                            border-radius: 50%;
+                            background-color: rgb(71, 69, 69);
+                        }
+                    }
+                    .comment-three-dot:hover{
+                        background-color: rgb(189, 184, 184);
+                        .dot{
+                            background-color: black;
+                        }
+                    }
+                    .comment-utils-buttons{
+                        position: absolute;
+                        left: -20px;
+                        top: 35px;
+                        background-color: white;
+                        box-shadow: 0 0 3px 1px black;
+                        width: 130px;
+                        display: flex;
+                        flex-direction: column;
+                        *{
+                            padding: 0;
+                            width: 100%;
+                            height: 50%;
+                            cursor: pointer;
+                            padding-left: 10px;
+                            display: flex;
+                            align-items: center;
+                        }
+                        *:hover{
+                            background-color: rgb(214, 207, 207);
+                        }
+                        .comment-edit{
+                            color: black;
+                            padding: 0;
+                            .edit-icon{
+                                width: 35px;
+                            }
+                        }
+                        .comment-remove{
+                            color: black;
+                            padding: 0;
+                            .remove-icon{
+                                width: 35px;
+                            }
+                        }
+                    }
+                }
+                .input{
+                    width: 100%;
+  
+                }
+            }
+        }
+        .comment-element:hover{
+            background-color: #1e232c;   
+            border-radius: 10px;
+            .comment-utils{
+                opacity: 1;
+            }
+        }
+        .show-reply-comment{
+            color: $neutral-color; 
+          
+            padding-left: 75px;
+            cursor: pointer;
+            font-style: italic;
+        }
+    }
+    
+    
+    .sub{
+        padding-top: 10px;
+    }
+    
+    .main{
+        padding-top: 10px;
+    }
+    
+    .liked{
+        color: red;
+    }
+    
+}
+
+.submitable{
+    background-color: $neutral-color;
+    color: white;
+}
+.btn{
+    padding:7px 10px 7px 10px;
+    border-radius: 5px;
+    background-color: rgb(25, 66, 94);
+    color:rgb(233, 217, 217);
+    font-weight: 500;
+    box-shadow: 0 0 1px 1px rgb(169, 173, 173);
+    border: none;
+    min-width: 60px;
+    outline: none;
+}
+.btn:active{
+    position: relative;
+    top: 1px;
+}
+
+.warning{
+    background-color: $warning-color;
+}
+
+.safe{
+    background-color: $safe-color;
+}
+
+.neutral{
+    background-color: $neutral-color;
+}
+.neutral:hover{
+    background-color: $neutral-color;
+    color: white;
+}
+
+.pale{
+    background-color: rgb(160, 158, 158);
+    color: rgb(0, 0, 0);
+}
+
+.pale-message{
+    color: rgb(151, 151, 151);
+}
+
+// ================== End CSS For comment ===========
+
+
+
+
+.sticky{
+    position: fixed !important;
+    top: 0 !important;
+}
+
+
+
+
+//===================Add card css ==============
+
+.add-card-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width:80%;
+    background-color: rgb(236, 232, 232);
+    z-index: 100;
+    box-shadow: 0 0 2px 1px grey;
+    h1{
+        margin-top: 15px;
+    }
+    .add-card-area{
+       
+        position: absolute;
+        top: 52px;
+        width: 100%;
+        height: calc(100% - 52px);
+        overflow: auto;
+       
+    .require{
+        
+        position: relative;
+        .requiresymbol{
+            position: absolute;
+            top:20px;
+            left: -5px;
+            color: rgb(236, 37, 37);
+            .sao{
+                position: relative;
+                top: 2px;
+            }
+        }
+    }
+    input{
+        width: 90%;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+        outline:none;
+    }
+    textarea{
+        width: 90%;
+        min-width: 60%;
+        margin-top: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 10px;
+        outline:none;
+    }
+    input:focus, textarea:focus{
+        background-color: rgb(247, 240, 240);
+    }
+    .front{
+        background-color: rgb(179, 227, 240);
+        text-align: center;
+        border-right: 1px solid rgb(177, 176, 176);
+        padding-bottom: 20px;
+    }
+    .back{
+        background-color: rgb(243, 236, 169);
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    }
+    .utils{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        height: 50px;
+        background-image: linear-gradient(to right, rgb(0, 77, 139), rgb(172, 93, 2));
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 1px rgb(187, 181, 181);
+        div{
+            cursor: pointer;
+            margin: 0 15px 0 15px;
+            font-size: 20px;
+            color: rgb(192, 189, 189);
+        }
+        div:hover{
+            color: rgb(255, 255, 255);
+        }
+        #add-card-btn{
+            color: rgb(224, 223, 223);
+            font-size: 35px;
+        }
+        div:active{
+            color: rgb(250, 230, 194);
+            position: relative;
+            top: 1px;
+        }
+        #add-card-btn:active{
+            color: rgb(240, 191, 101) !important;
+        }
+    }
+}
+
+.warning-border{
+    border: 2px solid rgb(228, 51, 51) !important;
+}
+
+// ====================end add card csss ==============
+ 
+
+//flash card
+#card-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    background-color: #417593;
+    display: flex;
+    .info-board{
+        background-color: rgb(24, 39, 68);
+        flex-basis: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+     
+        #small-cards{
+            height: 250px;
+        }
+        .utils{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            padding-left: 50px;
+            .text{
+                color: white;
+                font-size: 30px;
+                .title{
+                    font-size: 20px;
+                    color: #ddd;
+                }
+                .content{
+                    display: flex;
+                    font-weight: 600;
+                    *{
+                        margin-right: 5px;
+                    }
+                }
+            }
+            a{
+                width: 100px;
+                font-weight: 600;
+            }
+            a:before{
+                content: 'Quit';
+            }
+            
+        }
+    }
+    .card-show-content{
+        position: relative;
+        background-color: rgb(6, 40, 90);
+        flex: 1;
+        #next{ 
+            color: white;
+            font-size: 80px;
+            position: absolute;
+            transform: translateY(-50%);
+            right:20px;
+            top: 50%;
+            
+            cursor: pointer;
+        }
+        #next:hover{
+            color: rgb(240, 224, 6);
+        }
+        #next:active{
+            color: rgb(240, 224, 6);
+            top: calc(50% + 1px);
+        }
+        .start-state{
+            position: relative;;
+            width: 100%;
+            height: 100%;
+            
+            display: flex;  
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(218, 216, 216);
+            *{
+                margin: 30px;
+            }
+            a{
+                width: 200px;
+            }
+            .blog-name{
+                font-size: 50px;
+                
+            }
+            .summary{
+                
+                width: 80%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0 !important;
+                .my-process{
+                    
+                    font-size: 250%;
+                    color: yellow;
+                    letter-spacing: 2px;
+                }
+                .text{
+                    font-style: italic;
+                }
+                .summary-board{
+                    margin: 0 !important;
+                    position: relative;
+                    width: 80%;
+                    height: 150px;
+
+                    display: flex;
+                    justify-content: space-evenly;
+                    *{
+                        width: 25%;
+                        height:70%;
+                        background: green;
+                        border-radius: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 30px;
+                    }
+                    #goodCards{
+                        background: rgb(53, 121, 53);
+                    }
+                    #mediumCards{
+                        background: rgb(136, 136, 71);
+                    }
+                    #badCards{
+                        background: rgb(146, 64, 64);
+                    }
+                    *:active{
+                        position: relative;
+                        top: 2px;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+.stop-scrolling{
+    height: 100vh;
+    overflow: hidden;
+}
+
+.card{
+    position: absolute;
+    z-index: 100;
+    height: 200px;
+    top: 20px;
+    left: 10px;
+    width: 150px;
+    box-shadow: 0 0 3px 1px rgb(109, 109, 109);
+    border-radius: 5px;
+    transition: transform 0.7s ease-in-out;
+    transform-style: preserve-3d;
+    font-size: 10px;
+    .front, .back{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: inherit;
+        .card-image{
+            position: relative;
+            top: 0px;
+            left: 0px; 
+            width: 100%;
+            height: 35%;
+            z-index: 50;
+           
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                width: 100%;
+            }
+        }
+        .content{
+            position: relative;
+            z-index: 20;
+            font-family: 'Arial', sans-serif !important;
+            height: 65%;
+            overflow: hidden;
+            .title{
+                text-align: center;
+                width: 100%;
+                font-size: 200%;
+                color: rgb(211, 55, 16);
+                font-weight: 500;
+                padding:5%;
+            }
+            .description{
+                text-align: center;
+                width: 100%;
+                padding: 0 2% 5% 2%;
+                color: rgb(44, 43, 43);
+                overflow: auto;
+               
+            }
+        }
+    }
+    .front{
+        background: rgb(248, 223, 177);
+    }
+    .back{
+        background: rgb(223, 248, 206);
+        transform: rotateY(180deg);
+    }
+}
+.zoomoutImg{
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    z-index: 50;
+    height: 80vh !important;
+    width:80vw !important;
+    overflow:auto !important;
+    transform: translate(-50%, -50%);
+    
+    img{
+        width: 100% !important;
+    }
+}
+.card-canvas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 10;
+}
+.flip{
+    transform: rotateY(180deg);
+}
+.waring-background{
+    background: rgb(158, 158, 50) !important;
+}
+.critical-background{
+    background: rgb(145, 36, 36) !important;
+}
+@keyframes slide{
+    0%{
+        top: 0;
+        left: 0;
+        font-size: 10px;
+    }
+    35%{
+        top: 10%; 
+        left: 5%;
+        width: 200px;
+        height: 300px;
+        font-size: 13px;
+        
+    }
+    100%{
+        top: calc(50% - 260px);
+        left: calc(50% - 195px + 125px);
+        width: 390px;
+        height: 520px;
+        font-size: 18px;
+    }
+}
+
+
+//end of flash card
+
+
+//add to group board
+.group-board{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    
+    background: white;
+    z-index: 50;
+    .choose{
+       
+        width: 100%;
+        padding: 10px 10px 0 10px;
+        .choose-title{
+            display: flex;
+            justify-content: space-between;
+            font-size: 25px;
+            border-bottom: 1px solid grey;
+            .title{
+                margin: 10px;
+            }
+            .quit-group-board{
+                cursor: pointer;
+                margin: 10px;
+                color: #333;
+            }
+            .quit-group-board:hover{
+                color: #222;
+            }
+            .quit-group-board:active{
+                position: relative;
+                top: 1px;
+            }
+        }
+        .my-groups {
+            max-height: 300px;
+            overflow: auto;
+            border-bottom: 1px solid grey;
+            .my-group{
+                cursor: pointer;
+                overflow: hidden;
+                margin: 10px;
+                background-color: rgb(248, 248, 248);
+                box-shadow: 0 0 1px 1px rgb(182, 182, 182);
+                padding: 10px;
+            }
+            .my-group:hover{
+                position: relative;
+                right: 1px;
+                top: -2px;
+                padding: 10px;
+            }
+        }
+    }
+    .create{
+        padding-left: 10px;
+        padding-right: 10px;
+        .title{
+            cursor: pointer;
+            padding: 5px 10px 5px 10px;
+            font-size: 25px;
+           
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            *{
+                margin: 10px;
+            }
+            input, select{
+                border: 1px solid grey;
+                padding: 8px;
+            }
+            input[type=submit]{
+                width: 100px;
+                font-size: inherit;
+                padding: 8px;
+            }
+        }
+    }
+}
+
+//end of group board
+
+
+//large
+@media screen and (max-width: 960px) {
+    .blog-body{
+        .tagbar{
+            opacity: 0;
+        }
+        .post{
+            margin-left: 3%;
+            margin-right: 3% !important;
+            width: 94%;
+            margin-top: 50px;
+        }
+        .utils-bar{
+            position: absolute;
+            margin-bottom: 0!important;
+            top: -35px;
+            left:0;
+            width:100%; 
+            height: 50px;
+            background-image: linear-gradient(to right, rgb(207, 157, 81) , rgb(223, 107, 54));
+            flex-direction: row;
+            justify-content: space-around;
+            
+            div{
+                margin-bottom: 0;
+            }
+            .ilus{
+                color: rgb(92, 77, 77) !important;
+                font-size: 90%;
+            }
+            .remember{
+                color: rgb(218, 29, 23) !important;
+            }
+        }
+        .suggest-blog{
+            position: relative !important;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            .sg-element{
+                margin: 5%;
+                width: 90%;
+            }
+        }
+        .blog-comment{
+            margin-left: 0%;
+            margin-right: 0%;
+            width: 100%;
+           
+        }
+    }
+    .info{
+        .author-avatar{
+            flex-basis: 45px;
+            height: 45px !important;
+            width: 45px !important;
+        }
+        .detail-info{
+            margin-left: 15 !important;
+            div{
+                margin-right: 10px !important;
+                .title{
+                   
+                }
+                .content{
+                    font-size: 85%;
+                }
+            }
+        }
+    }
+    .add-card-container{
+        position: fixed !important;
+        height: 95% !important;
+        width: 95% !important;
+        .add-card-area{
+            grid-template-columns: 1fr !important;
+        }
+        input{
+            width: 95% !important;
+        }
+        textarea{
+            width: 95% !important;
+        }
+        .require{
+            width: 100% !important;
+            .requiresymbol{
+                left: -15px !important;
+            }
+        }
+    }
+
+    .card-container{
+        flex-direction: column;
+        .info-board{
+            flex-basis: 100px !important;
+            flex-direction: row !important;
+            #small-cards{
+                flex-basis: 100px;
+                height: 50px !important; 
+            }
+            .utils{
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center;
+                .text{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+                a{
+                    width: 50px !important;
+                    height: 50px;
+                }
+                a::before{
+                    content: '\D7' !important;
+                }
+            }
+        }
+    }
+    .card{
+        height: 80px;
+        transform: translateX(-40px);
+        width: 60px;
+        font-size: 5px;
+        
+    }
+    .flip{
+        transform:   translateX(-40px) rotateY(180deg);
+    }
+    @keyframes slide{
+        0%{
+            top: 10px;
+            left: 5px;
+            font-size: 5px ;
+        }
+        35%{
+            top: 10%;
+            left: 10%;
+            height: 120px;
+            width: 90px;
+            font-size: 10px ;
+        }
+        100%{
+            top: calc(50% + 50px - 240px);
+            left: calc(50% - 180px);
+            width: 360px;
+            height: 480px;
+            font-size: 18px;
+        }
+    }
+}

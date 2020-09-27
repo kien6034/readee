@@ -1,0 +1,125 @@
+.my-container {
+  position: relative;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60% 40%;
+      grid-template-columns: 60% 40%;
+}
+
+.my-container form {
+  width: 100%;
+  padding: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-right: 2px solid #bbb9b9;
+}
+
+.my-container form input {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.my-container form input[type=text] {
+  outline: none;
+  border: 1px solid grey;
+}
+
+.my-container form input[type=text]:focus {
+  background-color: #f5f3f3;
+}
+
+.my-container form label {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.my-container form #cke_id_body {
+  width: 100% !important;
+}
+
+.my-container form input[type=submit] {
+  margin-top: 30px;
+  width: 100px;
+  background: #f1b50e;
+  border: none;
+  outline: none;
+}
+
+.my-container form input[type=submit]:hover {
+  background: #d8a20d;
+}
+
+.my-container form input[type=submit]:active {
+  position: relative;
+  top: 2px;
+  -webkit-box-shadow: 0 0 3px 3px #eecf47;
+          box-shadow: 0 0 3px 3px #eecf47;
+  background: #e7ad0d;
+}
+
+.my-container form input[type=checkbox] {
+  width: 30px;
+  margin: 20px 0 0 0 !important;
+}
+
+.my-container form label[for=image-clear_id] {
+  font-size: 90%;
+  color: red;
+  font-weight: 500;
+}
+
+.my-container .instruction {
+  background-color: #dadada;
+  padding: 3%;
+  font-size: 16px;
+}
+
+.my-container .instruction .instruct-title {
+  font-size: 150%;
+  color: #8f711f;
+  text-align: center;
+  font-weight: 600;
+}
+
+.my-container .instruction .element {
+  margin-top: 30px;
+}
+
+.my-container .instruction .images {
+  width: 100%;
+}
+
+.my-container .instruction .images .title {
+  font-weight: 500;
+  font-size: 130%;
+  margin-bottom: 10px;
+}
+
+.my-container .instruction .images img {
+  width: 100%;
+}
+
+.my-container .instruction .images .description .note {
+  font-size: 95%;
+  font-style: italic;
+  color: #c01414;
+}
+
+@media screen and (max-width: 960px) {
+  .my-container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+/*# sourceMappingURL=add_blog.css.map */

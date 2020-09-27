@@ -1,0 +1,474 @@
+.st0 {
+  fill: #888A00;
+}
+
+.st1 {
+  opacity: 0.3;
+}
+
+.st2 {
+  fill: url(#SVGID_1_);
+}
+
+.st3 {
+  fill: url(#SVGID_2_);
+}
+
+.st4 {
+  fill: url(#SVGID_3_);
+}
+
+.st5 {
+  opacity: 0.2;
+}
+
+.st6 {
+  fill: url(#SVGID_4_);
+}
+
+.st7 {
+  fill: url(#SVGID_5_);
+}
+
+.st8 {
+  fill: url(#SVGID_6_);
+}
+
+.st9 {
+  fill: url(#SVGID_7_);
+}
+
+.st10 {
+  fill: url(#SVGID_8_);
+}
+
+.st11 {
+  fill: url(#SVGID_9_);
+}
+
+.st12 {
+  fill: url(#SVGID_10_);
+}
+
+.st13 {
+  fill: url(#SVGID_11_);
+}
+
+.st14 {
+  fill: url(#SVGID_12_);
+}
+
+.st15 {
+  fill: url(#SVGID_13_);
+}
+
+.st16 {
+  fill: url(#SVGID_14_);
+}
+
+.st17 {
+  fill: url(#SVGID_15_);
+}
+
+.st18 {
+  fill: url(#SVGID_16_);
+}
+
+.st19 {
+  fill: url(#SVGID_17_);
+}
+
+.st20 {
+  fill: url(#SVGID_18_);
+}
+
+.st21 {
+  fill: url(#SVGID_19_);
+}
+
+.st22 {
+  fill: url(#SVGID_20_);
+}
+
+.st23 {
+  fill: url(#SVGID_21_);
+}
+
+.st24 {
+  fill: url(#SVGID_22_);
+}
+
+.st25 {
+  fill: url(#SVGID_23_);
+}
+
+.st26 {
+  fill: url(#SVGID_24_);
+}
+
+.st27 {
+  fill: url(#SVGID_25_);
+}
+
+.st28 {
+  fill: url(#SVGID_26_);
+}
+
+.st29 {
+  fill: url(#SVGID_27_);
+}
+
+.st30 {
+  fill: url(#SVGID_28_);
+}
+
+.st31 {
+  fill: url(#SVGID_29_);
+}
+
+.st32 {
+  fill: url(#SVGID_30_);
+}
+
+.st33 {
+  fill: url(#SVGID_31_);
+}
+
+.st34 {
+  fill: url(#SVGID_32_);
+}
+
+.st35 {
+  fill: url(#SVGID_33_);
+}
+
+.st36 {
+  fill: url(#SVGID_34_);
+}
+
+.st37 {
+  fill: url(#SVGID_35_);
+}
+
+.st38 {
+  fill: url(#SVGID_36_);
+}
+
+.st39 {
+  fill: #2F2E41;
+}
+
+.st40 {
+  fill: #E2A447;
+}
+
+.st41 {
+  opacity: 0.66;
+}
+
+.st42 {
+  fill: #0044C9;
+}
+
+.st43 {
+  opacity: 0.75;
+}
+
+.st44 {
+  fill: #E300F4;
+}
+
+.st45 {
+  fill: #FFBF4A;
+}
+
+.st46 {
+  fill: #E9FF1F;
+  fill-opacity: 0.696;
+}
+
+.st47 {
+  fill: #DF8300;
+  stroke: #000000;
+  stroke-width: 2.2452;
+  stroke-linejoin: round;
+}
+
+.st48 {
+  fill: #6C0074;
+  stroke: #000000;
+  stroke-width: 2.2452;
+  stroke-linejoin: round;
+}
+
+.st49 {
+  fill: #BFBFBF;
+  stroke: #000000;
+  stroke-width: 2.8066;
+  stroke-linejoin: round;
+}
+
+.st50 {
+  fill: #AEFFFF;
+  stroke: #000000;
+  stroke-width: 2.2452;
+  stroke-linejoin: round;
+}
+
+.st51 {
+  opacity: 0.65;
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 0.7215;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  enable-background: new;
+}
+
+#man-rocket:hover #Head {
+  -webkit-animation: shake 1s infinite linear;
+          animation: shake 1s infinite linear;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  transform-box: fill-box;
+}
+
+#man-rocket {
+  -webkit-animation: bounce 1s infinite ease-in-out alternate;
+          animation: bounce 1s infinite ease-in-out alternate;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  to {
+    -webkit-transform: rotateX(20deg);
+            transform: rotateX(20deg);
+  }
+}
+
+@keyframes bounce {
+  from {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  to {
+    -webkit-transform: rotateX(20deg);
+            transform: rotateX(20deg);
+  }
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateZ(0deg);
+            transform: rotateX(0deg) rotateZ(0deg);
+  }
+  25% {
+    -webkit-transform: rotateZ(10deg);
+            transform: rotateZ(10deg);
+  }
+  75% {
+    -webkit-transform: rotateZ(-10deg);
+            transform: rotateZ(-10deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0deg) rotateX(20deg);
+            transform: rotateZ(0deg) rotateX(20deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotateX(0deg) rotateZ(0deg);
+            transform: rotateX(0deg) rotateZ(0deg);
+  }
+  25% {
+    -webkit-transform: rotateZ(10deg);
+            transform: rotateZ(10deg);
+  }
+  75% {
+    -webkit-transform: rotateZ(-10deg);
+            transform: rotateZ(-10deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0deg) rotateX(20deg);
+            transform: rotateZ(0deg) rotateX(20deg);
+  }
+}
+
+#flying-objects {
+  -webkit-animation: sliding 4s infinite linear;
+          animation: sliding 4s infinite linear;
+}
+
+#planets {
+  -webkit-animation: sliding 10s infinite linear;
+          animation: sliding 10s infinite linear;
+}
+
+@-webkit-keyframes sliding {
+  from {
+    -webkit-transform: translateX(0%) translateY(0%);
+            transform: translateX(0%) translateY(0%);
+  }
+  to {
+    -webkit-transform: translateX(25%) translateY(50%);
+            transform: translateX(25%) translateY(50%);
+  }
+}
+
+@keyframes sliding {
+  from {
+    -webkit-transform: translateX(0%) translateY(0%);
+            transform: translateX(0%) translateY(0%);
+  }
+  to {
+    -webkit-transform: translateX(25%) translateY(50%);
+            transform: translateX(25%) translateY(50%);
+  }
+}
+
+.window {
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 25, 26, 0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  right: 50%;
+  overflow: hidden;
+}
+
+svg {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  bottom: 0px;
+  right: -50%;
+}
+
+body {
+  margin-bottom: 200px;
+}
+
+.welcome {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-color: #164e6e;
+}
+
+.welcome .banner {
+  position: absolute;
+  z-index: 1;
+  padding: 0 5% 0 5%;
+  height: 100%;
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.welcome .banner .slogan .main-slogan {
+  font-size: 60px;
+  color: #d6d2cf;
+  font-weight: 500;
+}
+
+.welcome .banner .slogan .main-slogan::before {
+  content: 'Read Fast,' ' Learn Smart';
+}
+
+.welcome .banner .slogan .sub-slogan {
+  margin-top: 20px;
+  color: #a7a1a1;
+  font-size: 23px;
+}
+
+.welcome .banner .slogan .sub-slogan::before {
+  content: 'With the prequote that using English as the tool, learning English as a child, the web is created to help readers have an easier reading, learning something new while English is being inserted automatically inside your head.';
+}
+
+.welcome .banner .slogan .buttons {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.welcome .banner .slogan .buttons * {
+  margin-right: 15px;
+}
+
+.welcome .banner .slogan .a {
+  width: 200px;
+  font-size: 25px;
+}
+
+.welcome .illustration {
+  height: 100%;
+  background-color: #1d3e5f;
+}
+
+.tour-sologan {
+  margin-top: 100px;
+  font-size: 39px;
+  font-family: 'Grandstander', cursive !important;
+  font-weight: 600;
+  color: #C0922E;
+}
+
+.intros .row {
+  margin-top: 100px;
+}
+
+.intros .row h1 {
+  font-family: 'Grandstander', cursive !important;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.intros .row div {
+  margin-top: 30px;
+}
+
+.intros .row p {
+  font-size: 20px;
+}
+
+.tour {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .banner {
+    width: 100% !important;
+  }
+  .banner .slogan .main-slogan {
+    font-size: 35px !important;
+  }
+  .banner .slogan .main-slogan::before {
+    content: 'Read Fast,  \A' 'Learn Smart' !important;
+    white-space: pre;
+  }
+  .banner .slogan .sub-slogan {
+    width: 80%;
+  }
+  .banner .slogan .sub-slogan::before {
+    content: 'Not just English.\A' 'A new way to improve your reading skill.' !important;
+    white-space: normal;
+  }
+}
+/*# sourceMappingURL=home.css.map */
