@@ -47,10 +47,17 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 
-    'social_django',
+    'django.contrib.sites',
 
     'django_extensions', #delete when deploy, plus remove the pyOpenSSL package from requirements.txt
 
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +69,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'social_django.middleware.SocialAuthExceptionMiddleware',  
 ]
 
 ROOT_URLCONF = 'reade.urls'
@@ -79,21 +85,12 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                'social_django.context_processors.backends',  # <-- Here
-                'social_django.context_processors.login_redirect', # <-- Here
             ],
         },
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.github.GithubOAuth2',
 
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 WSGI_APPLICATION = 'reade.wsgi.application'
 
@@ -236,12 +233,6 @@ EMAIL_HOST_USER = "readeeApp@gmail.com"
 EMAIL_HOST_PASSWORD = "2opdisOkay"
 
 
-#social auth
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
-
-
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '675562853083-cno8du9qaabgd5tdq8hifb2ioqcf6kc4.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'E7SmnpAGwqHYMs0oRxWAvufy'
+#allauth
+SITE_ID=1
+LOGIN_REDIRECT_URL ="/"

@@ -1,4 +1,8 @@
+
 {% extends 'base/base.html' %}
+{% load socialaccount %}
+{% providers_media_js %}
+
 {% load static %}
 {% block extra_head_content %}
 
@@ -36,9 +40,9 @@
     <div class = "or pale small margin-bottom"> or you can sign in with</div>
 
     <div class = "social-account">
-        <a href="{% url 'social:begin' 'facebook' %}"><button class = "btn facebook">Facebook</button></a> 
+        <a href="{% provider_login_url 'facebook' method= 'oauth2' %}"><button class = "btn facebook">Facebook</button></a> 
         
-        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><button class = "btn google">Google</button></a>
+        <a href="{% provider_login_url 'google'  %}"><button class = "btn google">Google</button></a>
     </div>
 </div>
     
