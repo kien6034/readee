@@ -7,6 +7,10 @@ body {
   margin-bottom: 70px;
 }
 
+.container h1 {
+  text-align: center;
+}
+
 .container .element {
   padding: 20px;
 }

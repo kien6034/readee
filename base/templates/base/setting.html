@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block extra_head_content %}
+<link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/setting.css' %}">
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 element">
+            <div class="image-profile">
+                <img src = "{{request.user.member.imageURL}}">
+            </div>
+                
+        </div>
+        <div class="col-lg-6 element">
+            <form method = "POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form}}
+                <input type= "submit" value = "Submit"/>
+            </form>
+        </div>
+      
+    </div>
+ 
+
+    
+</div>
+
+{% endblock %}

@@ -157,6 +157,7 @@ h1{
 //===================Add card css ==============
 
 .add-card-container{
+    margin-top: 10px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -170,55 +171,55 @@ h1{
         margin-top: 15px;
     }
     .add-card-area{
-        display: grid;
+       
         position: absolute;
         top: 52px;
         width: 100%;
         height: calc(100% - 52px);
         overflow: auto;
-        grid-template-columns: 1fr 1fr;
-    .require{
-        position: relative;
-        .requiresymbol{
-            position: absolute;
-            top:20px;
-            left: 10px;
-            color: rgb(236, 37, 37);
-            .sao{
-                position: relative;
-                top: 2px;
+        
+        .require{
+            position: relative;
+            .requiresymbol{
+                position: absolute;
+                top:20px;
+                left: 10px;
+                color: rgb(236, 37, 37);
+                .sao{
+                    position: relative;
+                    top: 2px;
+                }
             }
         }
-    }
-    input{
-        width: 80%;
-        border: 1px solid grey;
-        border-radius: 5px;
-        padding: 10px;
-        margin-top: 10px;
-        outline:none;
-    }
-    textarea{
-        width: 80%;
-        min-width: 60%;
-        margin-top: 10px;
-        border: 1px solid grey;
-        border-radius: 5px;
-        padding: 10px;
-        outline:none;
-    }
-    input:focus, textarea:focus{
-        background-color: rgb(247, 240, 240);
-    }
-    .front{
-        background-color: rgb(179, 227, 240);
-        text-align: center;
-        border-right: 1px solid rgb(177, 176, 176);
-    }
-    .back{
-        background-color: rgb(243, 236, 169);
-        text-align: center;
-    }
+        input{
+            width: 80%;
+            border: 1px solid grey;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            outline:none;
+        }
+        textarea{
+            width: 80%;
+            min-width: 60%;
+            margin-top: 10px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            padding: 10px;
+            outline:none;
+        }
+        input:focus, textarea:focus{
+            background-color: rgb(247, 240, 240);
+        }
+        .front{
+            background-color: rgb(179, 227, 240);
+            text-align: center;
+            border-right: 1px solid rgb(177, 176, 176);
+        }
+        .back{
+            background-color: rgb(243, 236, 169);
+            text-align: center;
+        }
     }
     .utils{
         position: absolute;
@@ -271,5 +272,11 @@ h1{
         height: 0;
         width: 0;
         display: none;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .add-card-container{
+        width: 90% !important;
     }
 }

@@ -1,4 +1,4 @@
-$body-background: #232a36;
+$body-background: #1f252e;
 $blog-comment-background: #181c24;
 .blog-banner{
     height: 300px;
@@ -10,6 +10,7 @@ $blog-comment-background: #181c24;
     overflow:hidden;
     img{
         width: 100%;
+        min-height: 100%;
     }
     .banner-content{
         position: absolute;
@@ -139,7 +140,17 @@ $blog-comment-background: #181c24;
         box-shadow: 2px 2px rgb(61, 60, 60);
         padding: 40px;
         padding-bottom: 80px;
-    
+        img{
+            width: 100%;
+        }
+
+        ol, ul{
+            margin-left: 14px;
+            padding-left: 0px;
+            list-style-position: outside;
+            
+        }
+
     }
     .utils-bar{
         background: $body-background;
@@ -202,8 +213,8 @@ a{
 
 //=================Style layout property for comment ======================
 .blog-comment{
-    color: rgb(238, 236, 236);
-    background-color: $blog-comment-background;
+    
+   
     width: 65%;
     margin-left: 100px;
     margin-bottom: 100px;
@@ -276,22 +287,22 @@ a{
     .input-board{
         .form-container{
             display: flex;
+            
             margin-bottom: 20px;
+            margin-top: 10px;
             .form-comment-avatar{
-                width: 60px;
-                height: 60px;
+                width: 45px;
+                height: 45px;
                 border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                overflow:hidden;
+                overflow: hidden;
+                background-color: honeydew;
                 img{
-                    width:90%;
-                    height: 90%;
+                    width:100%;
+                    height: 100%;
                 }
             }
             .form-comment{ 
-                margin-top: 10px;
+                margin-top: 5px;
                 position: relative;
                 width: calc(100% - 150px);
                 flex-direction: column;
@@ -299,14 +310,15 @@ a{
                 .form-comment-input{
                     width:100%;
                     min-width: 0;
-                    border: 1px solid black;
+                    border: 1px solid black; 
                     padding: 5px 10px 5px 10px;
                     overflow-wrap: break-word;
-                    border-radius: 15px;
+                    border-bottom: 1px solid grey;
                     outline: none;
                 }
                 .form-comment-input:focus{
                     background-color: rgb(222, 230, 230);
+                    color: rgb(22, 22, 22);
                 }
                 .form-utils{
                     width:100%;
@@ -340,20 +352,20 @@ a{
                 }
             }
         }
-        .main-form{
-            .form-comment{
-                .form-comment-input{
-                    border: none;
-                    border-bottom: 1px solid grey !important;
-                    border-radius: 0;
+            .main-form{
+                .form-comment{
+                    .form-comment-input{
+                        border: none;
+                        border-bottom: 1px solid grey !important;
+                        border-radius: 0;
+                    }
+                    .form-comment-input:focus {
+                        border-bottom: 2px solid rgb(58, 57, 57) !important;
+                        background: rgb(221, 220, 220);
+                    }
+                    
                 }
-                .form-comment-input:focus {
-                    border-bottom: 2px solid rgb(58, 57, 57) !important;
-                    background: rgb(221, 220, 220);
-                }
-                
             }
-        }
     }
     .comment-board{
         position: relative;
@@ -592,7 +604,7 @@ a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 80%;
+    height: 85%;
     width:80%;
     background-color: rgb(236, 232, 232);
     z-index: 100;
@@ -601,7 +613,6 @@ a{
         margin-top: 15px;
     }
     .add-card-area{
-       
         position: absolute;
         top: 52px;
         width: 100%;
@@ -609,7 +620,6 @@ a{
         overflow: auto;
        
     .require{
-        
         position: relative;
         .requiresymbol{
             position: absolute;
@@ -813,9 +823,10 @@ a{
                     display: flex;
                     justify-content: space-evenly;
                     *{
+                        margin: 0 !important;
                         width: 25%;
                         height:70%;
-                        background: green;
+                        
                         border-radius: 10px;
                         display: flex;
                         justify-content: center;
@@ -982,8 +993,7 @@ a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 450px;
-    
+    width: 50%;
     background: white;
     z-index: 50;
     .choose{
@@ -1172,6 +1182,9 @@ a{
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    .content{
+                        font-size: 25px !important;
+                    }
                 }
                 a{
                     width: 50px !important;
@@ -1193,6 +1206,82 @@ a{
     .flip{
         transform:   translateX(-40px) rotateY(180deg);
     }
+
+    //comment
+    .input-board{
+        .form-container{
+           
+            .form-comment-avatar{
+                display: none;
+            }
+        }
+    }
+    .comment-board{
+        .comment-element{
+            .comment-avatar{
+                height: 45px !important;
+                width: 45px !important;
+            }
+        }
+        .form-comment{
+            margin-left: 0 !important;
+            width: 90% !important;
+        }
+    }
+    .main-form{
+        .form-comment-avatar{
+            display: block !important;
+        }
+        .form-comment{
+            width: 85% !important;
+            .form-comment-input{
+                width: 100% !important;
+            }
+            .form-comment-input:focus {
+                border-bottom: 2px solid rgb(58, 57, 57) !important;
+                background: rgb(221, 220, 220);
+            }
+            
+        }
+    }
+
+
+    .start-state{
+        .blog-name{
+            font-size: 28px !important;
+        }
+        a{
+            width: 100px !important;
+            font-size: 18px;
+            margin: 10px !important;
+        }
+        .summary-board{
+            margin: 0 !important;
+            
+            width: 90% !important;
+            height: 130px !important;
+            *{
+                width: 28% !important;
+                height:50% !important;
+                
+                
+                font-size: 28px !important;
+            }
+        }
+        .my-process{
+            font-size: 200% !important;
+        }
+    }
+   
+
+
+    
+
+    //group board
+    .group-board{
+        width: 70% !important;
+    }
+
     @keyframes slide{
         0%{
             top: 10px;
@@ -1209,9 +1298,19 @@ a{
         100%{
             top: calc(50% + 50px - 240px);
             left: calc(50% - 180px);
-            width: 360px;
-            height: 480px;
+            width: 330px;
+            height: 440px;
             font-size: 18px;
         }
+    }
+}
+
+
+@media screen and (max-width: 576px){
+    .group-board{
+        width: 90% !important;
+    }
+    .post{
+        padding: 30px 10px 30px 10px !important;
     }
 }

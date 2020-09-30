@@ -1,0 +1,41 @@
+.container .row {
+  margin-top: 80px;
+}
+
+.container .row .element .image-profile {
+  margin: auto;
+  width: 70%;
+  border: 1px solid black;
+}
+
+.container .row .element .image-profile img {
+  width: 100%;
+}
+
+.container .row .element form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 120%;
+}
+
+.container .row .element form a {
+  background: lightblue;
+  font-size: 85%;
+  margin-bottom: 10px;
+}
+
+.container .row .element form label[for=id_profile_picture], .container .row .element form label[for=id_name] {
+  font-size: 140%;
+  color: #000;
+  font-weight: 500;
+}
+
+.container .row .element form .errorlist {
+  display: none;
+}
+/*# sourceMappingURL=setting.css.map */

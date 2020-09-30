@@ -79,6 +79,10 @@
   font-weight: 500;
 }
 
+.my-container form textarea {
+  padding: 20px;
+}
+
 .my-container .instruction {
   background-color: #dadada;
   padding: 3%;

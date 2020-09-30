@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 
+    'social_django',
+
+    'django_extensions', #delete when deploy, plus remove the pyOpenSSL package from requirements.txt
+
 ]
 
 MIDDLEWARE = [
@@ -57,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',  
 ]
 
 ROOT_URLCONF = 'reade.urls'
@@ -72,10 +78,22 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',  # <-- Here
+                'social_django.context_processors.login_redirect', # <-- Here
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.github.GithubOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 WSGI_APPLICATION = 'reade.wsgi.application'
 
@@ -207,3 +225,23 @@ CKEDITOR_CONFIGS = {
 
 #django heroku
 django_heroku.settings(locals())
+
+
+#email service
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "readeeApp@gmail.com"
+EMAIL_HOST_PASSWORD = "2opdisOkay"
+
+
+#social auth
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '675562853083-cno8du9qaabgd5tdq8hifb2ioqcf6kc4.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'E7SmnpAGwqHYMs0oRxWAvufy'

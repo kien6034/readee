@@ -6,7 +6,8 @@
 
 {% block content %}
    <div class="container">
- 
+    <h1> Sets</h1>
+    <hr>
     <div class="row">
     {% for set in sets %}
         <div class="col-lg-6 col-xl-4 element">
@@ -17,7 +18,7 @@
                        
                         <div class="show-num">
                             <div class="icon"><i class="fas fa-stream"></i></div>
-                            <div class="count">{{set.blogs.count}} blogs</div>
+                            <div class="count">{{set.blogs.count}}</div>
                         </div>
                     </div>
                 </div>

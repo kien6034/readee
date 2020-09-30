@@ -14,6 +14,7 @@
 
 .blog-banner img {
   width: 100%;
+  min-height: 100%;
 }
 
 .blog-banner .banner-content {
@@ -158,7 +159,7 @@
 }
 
 .blog-body {
-  background: #232a36;
+  background: #1f252e;
   position: relative;
   padding-bottom: 200px;
   min-height: 120vh;
@@ -200,8 +201,18 @@
   padding-bottom: 80px;
 }
 
+.blog-body .post img {
+  width: 100%;
+}
+
+.blog-body .post ol, .blog-body .post ul {
+  margin-left: 14px;
+  padding-left: 0px;
+  list-style-position: outside;
+}
+
 .blog-body .utils-bar {
-  background: #232a36;
+  background: #1f252e;
   color: white;
   position: absolute;
   top: 35px;
@@ -272,8 +283,6 @@ a {
 }
 
 .blog-comment {
-  color: #eeecec;
-  background-color: #181c24;
   width: 65%;
   margin-left: 100px;
   margin-bottom: 100px;
@@ -351,31 +360,24 @@ a {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .blog-comment .input-board .form-container .form-comment-avatar {
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   overflow: hidden;
+  background-color: honeydew;
 }
 
 .blog-comment .input-board .form-container .form-comment-avatar img {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
 }
 
 .blog-comment .input-board .form-container .form-comment {
-  margin-top: 10px;
+  margin-top: 5px;
   position: relative;
   width: calc(100% - 150px);
   -webkit-box-orient: vertical;
@@ -391,12 +393,13 @@ a {
   border: 1px solid black;
   padding: 5px 10px 5px 10px;
   overflow-wrap: break-word;
-  border-radius: 15px;
+  border-bottom: 1px solid grey;
   outline: none;
 }
 
 .blog-comment .input-board .form-container .form-comment .form-comment-input:focus {
   background-color: #dee6e6;
+  color: #161616;
 }
 
 .blog-comment .input-board .form-container .form-comment .form-utils {
@@ -729,7 +732,7 @@ a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  height: 80%;
+  height: 85%;
   width: 80%;
   background-color: #ece8e8;
   z-index: 100;
@@ -1033,9 +1036,9 @@ a {
 }
 
 #card-container .card-show-content .start-state .summary .summary-board * {
+  margin: 0 !important;
   width: 25%;
   height: 70%;
-  background: green;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1255,7 +1258,7 @@ a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 450px;
+  width: 50%;
   background: white;
   z-index: 50;
 }
@@ -1487,6 +1490,9 @@ a {
         -ms-flex-align: center;
             align-items: center;
   }
+  .card-container .info-board .utils .text .content {
+    font-size: 25px !important;
+  }
   .card-container .info-board .utils a {
     width: 50px !important;
     height: 50px;
@@ -1505,6 +1511,54 @@ a {
     -webkit-transform: translateX(-40px) rotateY(180deg);
             transform: translateX(-40px) rotateY(180deg);
   }
+  .input-board .form-container .form-comment-avatar {
+    display: none;
+  }
+  .comment-board .comment-element .comment-avatar {
+    height: 45px !important;
+    width: 45px !important;
+  }
+  .comment-board .form-comment {
+    margin-left: 0 !important;
+    width: 90% !important;
+  }
+  .main-form .form-comment-avatar {
+    display: block !important;
+  }
+  .main-form .form-comment {
+    width: 85% !important;
+  }
+  .main-form .form-comment .form-comment-input {
+    width: 100% !important;
+  }
+  .main-form .form-comment .form-comment-input:focus {
+    border-bottom: 2px solid #3a3939 !important;
+    background: #dddcdc;
+  }
+  .start-state .blog-name {
+    font-size: 28px !important;
+  }
+  .start-state a {
+    width: 100px !important;
+    font-size: 18px;
+    margin: 10px !important;
+  }
+  .start-state .summary-board {
+    margin: 0 !important;
+    width: 90% !important;
+    height: 130px !important;
+  }
+  .start-state .summary-board * {
+    width: 28% !important;
+    height: 50% !important;
+    font-size: 28px !important;
+  }
+  .start-state .my-process {
+    font-size: 200% !important;
+  }
+  .group-board {
+    width: 70% !important;
+  }
   @-webkit-keyframes slide {
     0% {
       top: 10px;
@@ -1521,8 +1575,8 @@ a {
     100% {
       top: calc(50% + 50px - 240px);
       left: calc(50% - 180px);
-      width: 360px;
-      height: 480px;
+      width: 330px;
+      height: 440px;
       font-size: 18px;
     }
   }
@@ -1542,10 +1596,19 @@ a {
     100% {
       top: calc(50% + 50px - 240px);
       left: calc(50% - 180px);
-      width: 360px;
-      height: 480px;
+      width: 330px;
+      height: 440px;
       font-size: 18px;
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .group-board {
+    width: 90% !important;
+  }
+  .post {
+    padding: 30px 10px 30px 10px !important;
   }
 }
 /*# sourceMappingURL=blog.css.map */

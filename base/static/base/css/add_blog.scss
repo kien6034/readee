@@ -59,6 +59,9 @@
             color: red;
             font-weight: 500;
         }
+        textarea{
+            padding: 20px;
+        }
     }
     .instruction{
       background-color: rgb(218, 218, 218);
@@ -99,3 +102,4 @@
         grid-template-columns: 1fr;
     }
 }
+

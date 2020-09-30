@@ -30,15 +30,15 @@
         <button type="submit" class="btn btn-primary">Submit</button>  
     </form>
     <div class = "utils">
-        <a href = "#" class = "forgot slight-pale slight-small"> Forgot Password? </a>
+        <a href = "{% url 'reset_password' %}" class = "forgot slight-pale slight-small"> Forgot Password? </a>
         <a id = "signup-direct" class = "signup slight-pale slight-small">Sign up</a>
     </div>
     <div class = "or pale small margin-bottom"> or you can sign in with</div>
 
     <div class = "social-account">
-        <a><button class = "btn facebook">Facebook</button></a> 
+        <a href="{% url 'social:begin' 'facebook' %}"><button class = "btn facebook">Facebook</button></a> 
         
-        <a href = "#"><button class = "btn google">Google</button></a>
+        <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}"><button class = "btn google">Google</button></a>
     </div>
 </div>
     

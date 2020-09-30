@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block content %}
-{% if request.user.member %}
+{% if request.user.member %} 
 <div class="my-container">
-    <form action ="" method = "POST">
+    <form action ="" method = "POST" enctype="multipart/form-data">
         {% csrf_token %}
             {{ form.media}}
             {{ form}}

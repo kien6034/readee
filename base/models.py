@@ -31,6 +31,7 @@ class Member(models.Model):
     user = models.OneToOneField(User, on_delete= models.CASCADE, null= True, blank = True)
     profile_picture = models.ImageField(null = True, blank = True)
     is_verified = models.BooleanField(default=False)
+    name = models.CharField(max_length=256)
     
     @property 
     def imageURL(self):
@@ -41,7 +42,7 @@ class Member(models.Model):
         return url
 
     def __str__(self):
-        return f"{self.user.username}"
+        return f"{self.user}"
 
 #auto create member when user is created
 def create_user_profile(sender, instance, created, **kwargs):

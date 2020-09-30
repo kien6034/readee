@@ -80,8 +80,10 @@
                         <span class="fa fa-times" aria-hidden="true"></span>
                     </div>
                 </div>
-                <div class = "add-card-area">
-                    <div class="front">
+                <div class = "add-card-area row">
+                   
+                       
+                    <div class="front col-lg-6">
                         <h1> Front</h1>
                         <div class = "require">
                             <div class = "requiresymbol">(<span class = "sao">*</span>)</div>
@@ -91,7 +93,9 @@
                         <textarea id ="front-description"  rows="12" cols="50" placeholder="Type your description here"></textarea>
                         
                     </div>
-                    <div class="back">
+                
+                
+                    <div class="back col-lg-6" >
                         <h1>Back</h1>
                         <div class = "require">
                             <div class = "requiresymbol">(<span class = "sao">*</span>)</div>
@@ -100,6 +104,8 @@
                         <input class = "imgLink" type = "text" id = "back-imageLink" placeholder="Update or add link to your image!"/>
                         <textarea id="back-description" rows="12" cols="50" placeholder="Type your description here"></textarea>
                     </div>
+                       
+                    
                 </div>
             </div>
         {% endfor %}

@@ -196,6 +196,7 @@ h1 {
 }
 
 .add-card-container {
+  margin-top: 10px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -214,15 +215,11 @@ h1 {
 }
 
 .add-card-container .add-card-area {
-  display: -ms-grid;
-  display: grid;
   position: absolute;
   top: 52px;
   width: 100%;
   height: calc(100% - 52px);
   overflow: auto;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
 }
 
 .add-card-container .add-card-area .require {
@@ -350,6 +347,12 @@ h1 {
     height: 0;
     width: 0;
     display: none;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .add-card-container {
+    width: 90% !important;
   }
 }
 /*# sourceMappingURL=view_card.css.map */

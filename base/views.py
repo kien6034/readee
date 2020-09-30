@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.core import serializers
 from django.urls import reverse
 from django.views.decorators.http import require_http_methods, require_GET, require_POST
@@ -13,7 +13,7 @@ from .models import *
 from blog.models import Blog, CardSet, FlashCard
 
 #form 
-from .forms import BlogForm
+from .forms import BlogForm, MemberImageUploadForm
 def home(request):
     return render(request, 'base/home.html')
 
@@ -97,6 +97,39 @@ def user_home_page(request, memberId, type):
 
     return render(request, "base/user_home_page.html", context = context)
 
+def setting(request, memberId = None):
+    member = get_object_or_404(Member, id = memberId)
+    if request.user.member:
+        form = MemberImageUploadForm(request.POST, request.FILES or None, instance=member)
+        if request.method == "POST":    
+            if form.is_valid():
+                form.save()
+            return HttpResponse('Upload image succeeded')
+            
+    return render(request, 'base/setting.html', {'form': form})
+    
+    
+    
+def password_reset_view(request):
+    return render(request, 'base/password_reset.html')
+
+def password_reset_done_view(request):
+    return render(request, 'base/password_reset_done.html')
+
+
+def upload_pic(request):
+    if request.method == 'POST':
+        form = Member(request.POST, request.FILES)
+        upType = request.POST.get("upType")
+        my_id = request.POST.get("id")
+        
+        if form.is_valid():
+            m = Member.objects.get(id = my_id)
+            m.model_pic = form.cleaned_data['image']
+            m.save()
+        
+        return HttpResponse('image upload success')
+    return HttpResponseForbidden('allowed only via POST')
 
 def sets(request):
     context = {
@@ -107,7 +140,7 @@ def sets(request):
 def add_blog(request):
     if request.method == "POST":
         
-        form = BlogForm(request.POST or None)
+        form = BlogForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             post_item = form.save(commit= False)
             post_item.author = request.user.member
@@ -122,7 +155,7 @@ def add_blog(request):
 
 def edit_blog(request, blog_id = None):
     blog = get_object_or_404(Blog, id = blog_id)
-    form = BlogForm(request.POST or None, instance=blog)
+    form = BlogForm(request.POST or None, request.FILES or None, instance=blog)
     if form.is_valid():
         form.save()
         # to do

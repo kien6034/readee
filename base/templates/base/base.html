@@ -73,10 +73,15 @@
                         </a>
                     </div>
                     <div>
+                        <a href = "{% url 'setting' request.user.member.id %}" id = 'setting'>
+                            <img class = "" src = "{% static 'base/svg/settings.svg' %}">
+                            Setting</a>
+                    </div>
+                    <div>
                         <a href = "{% url 'logout' %}" id = 'logout'>
                             <img class = "" src = "{% static 'base/svg/logout-black.svg' %}">
                             Log out</a>
-                    </div>
+                    </div>   
                 </div>
             </div>
             {% else %}

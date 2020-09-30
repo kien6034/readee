@@ -111,6 +111,8 @@ def blog(request, blogId):
     # blog.views = F('views') + 1
     # blog.save()
     # blog.refresh_from_db()
+    if blog.public_state == False and request.user.id != blog.author.user.id:
+        return HttpResponse('This blog is privated. You are not authorized to view this blog')
 
     #not avoid race condition
     blog.views +=1

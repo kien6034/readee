@@ -1161,7 +1161,7 @@ class FlashCard{
     }
     nextCard(index){
         let tmp = parseInt(this.len) - parseInt(index);
-        console.log("index: "+ index)
+        
         if(index < this.len -1 && index >-1){
             const preCard = document.getElementById("flipcard")
             preCard.classList.add('hide');
