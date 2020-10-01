@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+a{
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+body{
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: rgb(240, 240,240);
+}
+.main{
+    width: 100%;
+    position: relative;
+}   
+.orange-bubble{
+    
+    position: absolute;
+    width: 50vw;
+    height: 50vh;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: 0;
+}
+
+
+.nav{
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    height: 100px;
+    padding: 0 5% 0 5%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .left{
+        .logo{
+            img{
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+    }
+    .right{
+        a{
+            color: rgb(216, 84, 31) !important;
+            font-weight: 500;
+        }
+    }
+  
+}
+
+.row{
+    padding: 0;
+    margin: 0;
+}
+
+.banner{
+    position: relative;
+    min-height: calc(100vh - 100px);
+    .blue-bubble{
+        position: absolute;
+        width: 50vw;
+        height: 50vh;
+        bottom: 0;
+        left: 0;
+        transform: translate(-70%, -20%);
+        z-index: -1;
+    }
+    .row{
+        .left{
+            padding-left: 5%;
+            display: flex;
+            align-items: center;
+            .frame{
+                height: 70vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .slogan{
+                    .my-slogan{
+                        margin-bottom: 30px;
+                        width:450px;
+                        .main-slogan{
+                            font-size: 250%;
+                            font-weight: 500;
+                            color: #0E30A9;
+                        }
+                        .bar{
+                            margin: 10px 0 10px 0;
+                            height: 5px;
+                            width: 100%;
+                            border-radius: 15px;
+                            background-image: linear-gradient(to right, rgb(92, 133, 187), rgb(221, 156, 34));
+                        }
+                        .sub-slogan{
+                            font-size: 200%;
+                            color: #b33d23;
+                            text-align: right;
+                        }
+                       
+                    }
+                    .description{
+                        width:500px;
+                        margin-bottom:50px;
+                        font-size: 120%;
+                    }
+                    
+                }
+                a{
+                    color: rgb(39, 38, 38) !important;
+                    font-weight: 500;
+                }
+            }
+        
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            img{
+                height: 70vh;
+                width: 70vw;
+            }
+        }
+    }
+}
+
+.text-direct{
+    position: relative;
+    
+   
+    .text{
+        padding: 30px;
+        text-align: center;
+        font-size: 300%;
+        font-weight: 500;
+        color: rgb(201, 136, 15);
+    }
+    
+}
+
+
+.instructions{
+    margin-top:150px;
+    .row{
+        margin-bottom: 70px;
+    }
+    .view-others{
+        .descrip{
+           padding-top: 30px;
+        }
+    }
+}
+
+.tutorial{
+    background-color: rgb(196, 26, 26);
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .text{
+        color: white;
+        font-size: 180%;
+        font-weight: 500;
+    }
+    .subtext{
+        color: rgb(204, 203, 203);
+        font-size: 120%;
+        margin-bottom: 20px;
+    }
+}
+
+.footer{
+    margin-top: 30px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    .info{
+        .element{
+            display: flex;
+            align-items: center;
+            *{
+                margin-right: 10px;
+            }
+            .icon{
+                height: 30px;
+                width: 30px;
+               
+            }
+        }
+        .name{
+            margin-bottom: 20px;
+            .text{
+                color: rgb(22, 54, 124);
+                font-size: 150%;
+            }
+            .logo{
+                img{
+                    height: 60px;
+                    width: 60px;
+                }
+            }
+
+        }
+    }
+    .connect{
+        .text{
+            color: rgb(155, 110, 27);  
+            font-weight: 500;
+            font-size: 150%;
+            margin-bottom: 20px;
+        }
+        .icon{
+            display: flex;
+            img{
+                margin-right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+.my-btn{
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    outline: none;
+}
+.my-btn:focus{
+    outline: none;
+}
+
+.my-btn-primary{
+    background-color: rgb(241, 103, 11);
+    color: rgb(255, 255, 255);
+}
+.my-btn-primary:hover{
+    background-color: rgb(204, 88, 10);
+}
+.my-btn-primary:active{
+    background-color: rgb(190, 82, 10);
+    box-shadow: 0 0 2px 2px rgb(189, 127, 85);
+    position: relative;
+    top: 1px;
+}
+
+.my-btn-white{
+    outline: none;
+    background-color: rgb(255, 254, 254);
+    color:  rgb(241, 103, 11);
+    box-shadow: 2px 2px grey;
+}
+.my-btn-white:active{
+    outline: none;
+    position: relative;
+    top: 2px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .orange-bubble{
+        width: 100vw !important;
+    }
+    .banner{
+        .blue-bubble{
+            width: 100%;
+            transform: translate(-70%, -50%) !important;
+        }
+        .row{
+            .left{
+                .frame{
+                    .slogan{
+                        .my-slogan{
+                            height: 40%;
+                            width: 50%;
+                        }
+                        .bar{
+                            margin: 7px 0 7px 0 !important; 
+                        }
+                        .sub-slogan{
+                            font-size: 180%!important;
+                            text-align: left !important;
+                        }
+                    }
+                    .description{
+                       width: 100% !important;
+                       padding-right: 3%;
+                    }
+                }
+            }
+            .right{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

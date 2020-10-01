@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #f0f0f0;
+}
+
+.main {
+  width: 100%;
+  position: relative;
+}
+
+.orange-bubble {
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  z-index: 0;
+}
+
+.nav {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  height: 100px;
+  padding: 0 5% 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav .left .logo img {
+  width: 100px;
+  height: 100px;
+}
+
+.nav .right a {
+  color: #d8541f !important;
+  font-weight: 500;
+}
+
+.row {
+  padding: 0;
+  margin: 0;
+}
+
+.banner {
+  position: relative;
+  min-height: calc(100vh - 100px);
+}
+
+.banner .blue-bubble {
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translate(-70%, -20%);
+          transform: translate(-70%, -20%);
+  z-index: -1;
+}
+
+.banner .row .left {
+  padding-left: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner .row .left .frame {
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.banner .row .left .frame .slogan .my-slogan {
+  margin-bottom: 30px;
+  width: 450px;
+}
+
+.banner .row .left .frame .slogan .my-slogan .main-slogan {
+  font-size: 250%;
+  font-weight: 500;
+  color: #0E30A9;
+}
+
+.banner .row .left .frame .slogan .my-slogan .bar {
+  margin: 10px 0 10px 0;
+  height: 5px;
+  width: 100%;
+  border-radius: 15px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#5c85bb), to(#dd9c22));
+  background-image: linear-gradient(to right, #5c85bb, #dd9c22);
+}
+
+.banner .row .left .frame .slogan .my-slogan .sub-slogan {
+  font-size: 200%;
+  color: #b33d23;
+  text-align: right;
+}
+
+.banner .row .left .frame .slogan .description {
+  width: 500px;
+  margin-bottom: 50px;
+  font-size: 120%;
+}
+
+.banner .row .left .frame a {
+  color: #272626 !important;
+  font-weight: 500;
+}
+
+.banner .row .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner .row .right img {
+  height: 70vh;
+  width: 70vw;
+}
+
+.text-direct {
+  position: relative;
+}
+
+.text-direct .text {
+  padding: 30px;
+  text-align: center;
+  font-size: 300%;
+  font-weight: 500;
+  color: #c9880f;
+}
+
+.instructions {
+  margin-top: 150px;
+}
+
+.instructions .row {
+  margin-bottom: 70px;
+}
+
+.instructions .view-others .descrip {
+  padding-top: 30px;
+}
+
+.tutorial {
+  background-color: #c41a1a;
+  height: 200px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tutorial .text {
+  color: white;
+  font-size: 180%;
+  font-weight: 500;
+}
+
+.tutorial .subtext {
+  color: #cccbcb;
+  font-size: 120%;
+  margin-bottom: 20px;
+}
+
+.footer {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.footer .info .element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .info .element * {
+  margin-right: 10px;
+}
+
+.footer .info .element .icon {
+  height: 30px;
+  width: 30px;
+}
+
+.footer .info .name {
+  margin-bottom: 20px;
+}
+
+.footer .info .name .text {
+  color: #16367c;
+  font-size: 150%;
+}
+
+.footer .info .name .logo img {
+  height: 60px;
+  width: 60px;
+}
+
+.footer .connect .text {
+  color: #9b6e1b;
+  font-weight: 500;
+  font-size: 150%;
+  margin-bottom: 20px;
+}
+
+.footer .connect .icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer .connect .icon img {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+.my-btn {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+  font-size: 20px;
+  outline: none;
+}
+
+.my-btn:focus {
+  outline: none;
+}
+
+.my-btn-primary {
+  background-color: #f1670b;
+  color: white;
+}
+
+.my-btn-primary:hover {
+  background-color: #cc580a;
+}
+
+.my-btn-primary:active {
+  background-color: #be520a;
+  -webkit-box-shadow: 0 0 2px 2px #bd7f55;
+          box-shadow: 0 0 2px 2px #bd7f55;
+  position: relative;
+  top: 1px;
+}
+
+.my-btn-white {
+  outline: none;
+  background-color: #fffefe;
+  color: #f1670b;
+  -webkit-box-shadow: 2px 2px grey;
+          box-shadow: 2px 2px grey;
+}
+
+.my-btn-white:active {
+  outline: none;
+  position: relative;
+  top: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .orange-bubble {
+    width: 100vw !important;
+  }
+  .banner .blue-bubble {
+    width: 100%;
+    -webkit-transform: translate(-70%, -50%) !important;
+            transform: translate(-70%, -50%) !important;
+  }
+  .banner .row .left .frame .slogan .my-slogan {
+    height: 40%;
+    width: 50%;
+  }
+  .banner .row .left .frame .slogan .bar {
+    margin: 7px 0 7px 0 !important;
+  }
+  .banner .row .left .frame .slogan .sub-slogan {
+    font-size: 180% !important;
+    text-align: left !important;
+  }
+  .banner .row .left .frame .description {
+    width: 100% !important;
+    padding-right: 3%;
+  }
+  .banner .row .right img {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=index.css.map */
