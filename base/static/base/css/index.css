@@ -29,8 +29,8 @@ body {
   height: 50vh;
   top: 0;
   right: 0;
-  -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
+  -webkit-transform: translate(50%, -80%);
+          transform: translate(50%, -80%);
   z-index: 0;
 }
 

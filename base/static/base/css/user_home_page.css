@@ -72,7 +72,7 @@ body {
   position: absolute;
   left: calc(10% + 220px);
   right: 25%;
-  padding-top: 5%;
+  padding-top: 30px;
 }
 
 .body .content .search {
@@ -82,8 +82,10 @@ body {
 
 .body .content .search .title {
   font-weight: 500;
-  font-size: 150%;
-  color: #b99e03;
+  font-size: 250%;
+  color: #103661;
+  text-shadow: 1px 1px grey;
+  margin-bottom: 20px;
 }
 
 .body .content .search form input {
@@ -174,11 +176,12 @@ body {
 
 @media screen and (max-width: 960px) {
   .sidebar {
-    background-image: -webkit-gradient(linear, left top, right top, from(#ceb31c), to(#f0b039));
-    background-image: linear-gradient(to right, #ceb31c, #f0b039);
-    height: 70px !important;
+    background-color: white !important;
+    -webkit-box-shadow: 0 1px 1px #a8a7a7;
+            box-shadow: 0 1px 1px #a8a7a7;
+    height: 50px !important;
     width: 100% !important;
-    top: 70px;
+    top: 50px;
     left: 0;
     -webkit-box-orient: horizontal !important;
     -webkit-box-direction: normal !important;
@@ -194,7 +197,7 @@ body {
     display: none;
   }
   .sidebar a .icon {
-    font-size: 170% !important;
+    font-size: 150% !important;
   }
   .sidebar a:hover .icon {
     color: #d80d0d !important;

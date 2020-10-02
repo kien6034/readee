@@ -29,14 +29,19 @@ a{
 }
 
 .nav{
-    position: relative;
-    
-    height: 70px;
+    z-index: 50;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
     width: 100%;
-    background: #244A60;
+    
+    
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .left-nav{
         position: relative;
         height: 100%;
@@ -53,16 +58,17 @@ a{
                 height: 50px;
             }
             .logo-text{
-                font-size: 36px;
-                color: rgb(216, 106, 42);
-                font-weight: 600;
-                font-family: 'Grandstander', cursive;
-                letter-spacing: 2px;
+                font-size: 30px;
+                color: rgb(18, 48, 92);
+                font-weight: 500;
+                font-family: 'Lato', sans-serif !important;
+                
             }
             .vertical-bar{
                 width: 3px;
-                height: 50px;
-                background: rgb(201, 190, 199);
+                height: 40px;
+                background-image:linear-gradient(to bottom, rgb(145, 204, 228), white);
+                border-radius: 1px;
             }
         }
         .features{
@@ -102,8 +108,8 @@ a{
     flex-direction: column;
     position: relative;
     #user-box-thumbnail{
-        width: 45px !important;
-        height: 45px !important;
+        width: 40px !important;
+        height: 40px !important;
         border-radius: 50%;
         overflow: hidden;
         background-color: rgb(255, 255, 255);
@@ -204,7 +210,7 @@ a{
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
-    z-index: 100;
+    z-index: 1500;
     *{
         margin: 10px;
     }
@@ -361,5 +367,8 @@ a{
                 }
             }
         }
+    }
+    .message-container{
+        min-width: 400px !important;
     }
 }

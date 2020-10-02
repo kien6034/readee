@@ -8,6 +8,8 @@ body {
 
 .container h1 {
   text-align: center;
+  color: #103661;
+  text-shadow: 1px 1px grey;
 }
 
 .container .row .element {

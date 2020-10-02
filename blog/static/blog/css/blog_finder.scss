@@ -6,6 +6,7 @@ body{
 }
 
 .main{
+    margin-top: 50px;
     position: relative;
     width: 100%;
     .sidebar{
@@ -19,9 +20,7 @@ body{
         padding-left: 50px;
         display: flex;
         flex-direction: column;
-        .filter{
-            display: none;
-        }
+        
         .section{
             margin-top: 80px;
             .title{
@@ -49,13 +48,16 @@ body{
     }
     
     .container{
+        
         position: absolute;
         width: calc(100% - 250px);
         top: 0;
         left: $sidebar-width;
         right: 100px;
         padding: 5%;
-       
+        .filter{
+            display: none;
+        }
         form{
             display: flex;
         
@@ -79,17 +81,35 @@ body{
             justify-content: space-between;
             align-items: center;
             #search-content{
-                font-size: 200%;
+                font-size: 150%;
             }
-            select{
-                padding: 7px;
+            .right{
+                display: flex;
+                select{
+                    padding: 7px 3px 7px 7px;
                 
-                option{
-                    padding: 3px;
+                    option{
+                        padding: 3px;
+                    }
+                }
+                .filter{
+                    border: 1px solid grey;
+                    background-color: white;
+                    padding: 5px;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    img{
+                        width: 30px;
+                    }   
                 }
             }
         }
+        
         #post-container{
+            
             position: relative;
            
             width: 100%;
@@ -99,17 +119,21 @@ body{
                 max-height: 200px;
                 position: relative;
                 width: 100%;
+                border-radius: 10px;
                 cursor: pointer;
                 background: rgb(255, 255, 255);
-                box-shadow: 3px 3px 2px  rgb(179, 175, 175);
+                box-shadow: 0 0 1px 1px  rgb(179, 175, 175);
                 display: flex;
                 .image-container{
                     height: 200px;
                     flex-basis: 300px;
+                    border-right: 1px solid black;
                     overflow: hidden;
                     img{
                         height: 100%;
                         width: 100%;
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
                     }
                 }  
                 .content{
@@ -145,7 +169,7 @@ body{
                 }
             }   
             .element:hover{
-    
+                border-right: 7px solid rgb(207, 102, 31);
             }
             .user-element{
                 margin-top: 20px;
@@ -204,20 +228,11 @@ body{
         width: 100% !important;
         .sidebar{
             z-index: 100;
-           background-color: rgb(217, 230, 255);
+           background-color: rgb(170, 200, 235);
            transform: translateX(-100%);
            transition: 0.5s ease-in-out;
-           .filter{
-               display: block;
-                position: absolute;
-                right: -40px;
-                color: rgb(15, 127, 179);
-                cursor: pointer;
-                font-size: 25px;
-           }
-           .filter:hover{
-               color: rgb(21, 151, 211);
-           }
+           
+          
         }
     }
 
@@ -227,6 +242,9 @@ body{
         
         left: 0 !important;
         right: 0 !important;
+        .filter{
+            display: flex !important;
+        }
         #post-container{
             .element{
                 flex-direction: column;
@@ -234,6 +252,13 @@ body{
                 max-height: 450px !important;
                 .image-container{
                     flex-basis: 200px !important;
+                    border-right: none !important;
+                    border-bottom: 1px solid black;
+                    img{
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 0px !important;
+                        border-top-right-radius: 10px;
+                    }
                 }
                 .content{
                     padding: 10px !important;
@@ -244,6 +269,9 @@ body{
                         margin-bottom: 5px;
                     }
                 }
+            }
+            .element:hover{
+                border-right: none !important;
             }
         }
     }

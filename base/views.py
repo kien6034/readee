@@ -74,6 +74,7 @@ def user_home_page(request, memberId, type):
         else:
             posts = allQs.filter(public_state=True)
     elif type == "saved":
+        title = "Saved"
         allQs = member.saved_blog.all()
         if request.user.id == member.user.id:
             posts = allQs

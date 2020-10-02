@@ -28,10 +28,13 @@ a {
 }
 
 .nav {
-  position: relative;
-  height: 70px;
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
   width: 100%;
-  background: #244A60;
+  background: rgba(0, 0, 0, 0.7);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,17 +73,18 @@ a {
 }
 
 .nav .left-nav .logo .logo-text {
-  font-size: 36px;
-  color: #d86a2a;
-  font-weight: 600;
-  font-family: 'Grandstander', cursive;
-  letter-spacing: 2px;
+  font-size: 30px;
+  color: #12305c;
+  font-weight: 500;
+  font-family: 'Lato', sans-serif !important;
 }
 
 .nav .left-nav .logo .vertical-bar {
   width: 3px;
-  height: 50px;
-  background: #c9bec7;
+  height: 40px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#91cce4), to(white));
+  background-image: linear-gradient(to bottom, #91cce4, white);
+  border-radius: 1px;
 }
 
 .nav .left-nav .features {
@@ -140,8 +144,8 @@ a {
 }
 
 .userbox #user-box-thumbnail {
-  width: 45px !important;
-  height: 45px !important;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 50%;
   overflow: hidden;
   background-color: white;
@@ -260,7 +264,7 @@ a {
           align-items: center;
   padding-left: 20px;
   padding-right: 20px;
-  z-index: 100;
+  z-index: 1500;
 }
 
 .message-container * {
@@ -426,6 +430,9 @@ a {
   }
   .nav .left-nav .features .element .text {
     display: none;
+  }
+  .message-container {
+    min-width: 400px !important;
   }
 }
 /*# sourceMappingURL=base.css.map */

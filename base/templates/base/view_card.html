@@ -17,8 +17,10 @@
             <button id = "yes-btn" class = "my-btn-warning">Yes</button>
         </div>
     </div>
-    <h1> {{name}}</h1>
+    
     <div class="container">
+        <h1> {{name}}</h1>
+        <hr>
         <div class="row">
             {% for card in cards %}
             <div class="col-12 col-lg-6 col-xl-4 element">
@@ -93,7 +95,7 @@
                         <textarea id ="front-description"  rows="12" cols="50" placeholder="Type your description here"></textarea>
                         
                     </div>
-                
+                 
                 
                     <div class="back col-lg-6" >
                         <h1>Back</h1>

@@ -5,6 +5,8 @@ body {
 h1 {
   margin-top: 80px;
   text-align: center;
+  color: #103661;
+  text-shadow: 1px 1px grey;
 }
 
 .container .row {
@@ -24,9 +26,9 @@ h1 {
 }
 
 .container .row .element .card .bar {
-  background: #d1cfcf;
-  -webkit-box-shadow: 0 0 2px 1px dimgray;
-          box-shadow: 0 0 2px 1px dimgray;
+  background: #6d8db1;
+  -webkit-box-shadow: 0 2px 1px dimgray;
+          box-shadow: 0 2px 1px dimgray;
   height: 35px;
   display: -webkit-box;
   display: -ms-flexbox;

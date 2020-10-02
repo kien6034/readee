@@ -183,6 +183,27 @@
 <div class="blog-banner">
     <img src= "{{blog.imageURL}}" alt="img">
     <div class = "banner-content">
+        {% if request.user.member %}
+                <div class="utils">
+                    
+                    <a href = "{% url 'edit_blog' blog.id %}" class="edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a id = "delete-blog-btn" class="delete">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                    <div id="delete-box" class = "hide">
+                        <div class="text">This action will delete your blog permanently. 
+                            <br><span>Are you sure to proceed?</span>
+                        </div>
+                        <div class="buttons">
+                            <button id = "no-delete-post" class = "my-btn-safe">No</button>
+                            <button id = "delete-post" class = "my-btn-warning">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+       <div class="content">
         <div class="blog-info">
             <h1> {{blog.name}}</h1>
             <div class="info">
@@ -232,27 +253,12 @@
                     </div>
                 </div>
             </div>
-            {% if request.user.member %}
-                <div class="utils">
-                    
-                    <a href = "{% url 'edit_blog' blog.id %}" class="edit">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                    <a id = "delete-blog-btn" class="delete">
-                        <i class="fas fa-trash-alt"></i>
-                    </a>
-                    <div id="delete-box" class = "hide">
-                        <div class="text">This action will delete your blog permanently. 
-                            <br><span>Are you sure to proceed?</span>
-                        </div>
-                        <div class="buttons">
-                            <button id = "no-delete-post" class = "my-btn-safe">No</button>
-                            <button id = "delete-post" class = "my-btn-warning">Yes</button>
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
         </div>
+       
+        <div class="description">
+            {{blog.description}}
+        </div>
+       </div>
     </div>
 </div>
 

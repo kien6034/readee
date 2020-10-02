@@ -51,15 +51,17 @@ body{
         position: absolute;
         left: calc(10% + 220px);
         right: 25%;
-        padding-top: 5%;
+        padding-top: 30px;
         .search{
-            
-           
+
             width: 100%;
             .title{
                 font-weight: 500;
-                font-size: 150%;
-                color: rgb(185, 158, 3);
+                font-size: 250%;
+                color: rgb(16, 54, 97);
+                text-shadow:  1px 1px grey;
+                
+                margin-bottom: 20px;
             }
             form{
                 input{
@@ -151,10 +153,11 @@ body{
 //large
 @media screen and (max-width: 960px) {
     .sidebar{
-        background-image: linear-gradient(to right, rgb(206, 179, 28), rgb(240, 176, 57));
-        height: 70px !important;
+        background-color: white !important;
+        box-shadow: 0 1px  1px rgb(168, 167, 167);
+        height: 50px !important;
         width:100% !important;
-        top: 70px;
+        top: 50px;
         left: 0;
         flex-direction: row !important;
         justify-content: space-around !important;
@@ -164,7 +167,7 @@ body{
                 display: none;
             }
             .icon{
-                font-size: 170% !important;
+                font-size: 150% !important;
             }
         }
         a:hover{

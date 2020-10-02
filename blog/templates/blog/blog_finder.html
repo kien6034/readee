@@ -73,9 +73,7 @@
 <div class="main" id = "main">
    
     <div id = "sideBar" class="sidebar">
-        <div id = "filter" class="filter">
-            <i class="fas fa-filter"></i>
-        </div>
+        
         <div class="title">     
         </div> 
         <div class="type section">
@@ -120,6 +118,10 @@
     </div>
     
     <div class = "container">
+      
+        <div class="filter">
+            
+        </div>
         <form id = "search-form">
             <input type = "text" name = "q" placeholder="Search Post" />
            
@@ -130,13 +132,19 @@
             <div id="search-content">
                 
             </div>
-            <select name="most" id="most">
-                <option value="recent">Most Recent</option>
-                <option value="relevant">Most Relevant</option>
-                <option value="views">Most Views</option>
-            </select>
+           <div class="right">
+                <div id = "filter" class="filter">
+                    <img src = "{% static 'base/images/filter-icon.jpg' %}"></i>
+                   
+                </div>
+                <select name="most" id="most">
+                    <option value="recent">Most Recent</option>
+                    <option value="relevant">Most Relevant</option>
+                    <option value="views">Most Views</option>
+                </select>
+           </div>
         </div>
-    
+        <hr>
         <div id="post-container">
     
         </div>
