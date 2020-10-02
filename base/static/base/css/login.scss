@@ -22,7 +22,8 @@
         }
         .text{
             font-weight: 500;
-            font-size: 20px;
+            font-size: 140%;
+            color: rgb(163, 25, 25);
         }
         margin-bottom: 30px;
     }
@@ -197,3 +198,6 @@ a:hover{
     margin: 0px 10px 0px 10px !important;
 }
 
+#message{
+    color: red;
+}

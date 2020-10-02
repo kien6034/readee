@@ -491,6 +491,7 @@ a {
 .blog-comment .comment-board {
   position: relative;
   width: 100%;
+  margin-top: 50px;
 }
 
 .blog-comment .comment-board .comment-element {

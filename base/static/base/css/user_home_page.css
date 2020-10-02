@@ -16,7 +16,7 @@ body {
 .body .sidebar {
   position: absolute;
   width: 220px;
-  z-index: 100;
+  z-index: 50;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -182,7 +182,7 @@ body {
             box-shadow: 0 1px 1px #a8a7a7;
     height: 50px !important;
     width: 100% !important;
-    top: 50px;
+    top: 70px;
     left: 0;
     -webkit-box-orient: horizontal !important;
     -webkit-box-direction: normal !important;

@@ -59,6 +59,22 @@ def logout_view(request):
     logout(request)
     return render(request, "base/home.html", {"message": "Logged out"})
 
+def change_password(request):
+    data = json.loads(request.body)
+    curPass = data['curPass']
+    newPass = data['newPass']
+    message = "wrong"
+
+    user = authenticate(request, username = request.user.username, password = curPass)
+    
+    if user is not None:
+        user.set_password(newPass)
+        user.save()
+        message = "correct"
+        logout(request)
+    
+
+    return HttpResponse(message)
 
 def user_home_page(request, memberId, type):
     query = request.GET.get("q")
@@ -99,6 +115,10 @@ def user_home_page(request, memberId, type):
     return render(request, "base/user_home_page.html", context = context)
 
 def setting(request, memberId = None):
+    
+    if int(request.user.id) != int(memberId):
+        return HttpResponseForbidden()
+
     member = get_object_or_404(Member, id = memberId)
     if request.user.member:
         form = MemberImageUploadForm(request.POST, request.FILES or None, instance=member)

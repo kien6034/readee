@@ -1,18 +1,13 @@
-.container .row {
-  margin-top: 80px;
+.container {
+  margin-top: 100px;
 }
 
-.container .row .element .image-profile {
-  margin: auto;
-  width: 70%;
-  border: 1px solid black;
+.container h2 {
+  color: #153e7c;
 }
 
-.container .row .element .image-profile img {
-  width: 100%;
-}
-
-.container .row .element form {
+.container .personal-info form {
+  padding-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,21 +16,111 @@
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 120%;
+  color: black;
 }
 
-.container .row .element form a {
-  background: lightblue;
+.container .personal-info form * {
+  margin-bottom: 20px;
+}
+
+.container .personal-info form a {
+  background: #dfac5f;
+  padding: 10px;
   font-size: 85%;
-  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid grey;
 }
 
-.container .row .element form label[for=id_profile_picture], .container .row .element form label[for=id_name] {
-  font-size: 140%;
-  color: #000;
+.container .personal-info form a::before {
+  content: 'Click me to see your profile image! \A';
+  color: #235d8d;
+  white-space: pre;
+  font-style: italic;
+}
+
+.container .personal-info form label[for=id_profile_picture], .container .personal-info form label[for=id_name] {
+  margin-top: 20px;
+  font-size: 130%;
+  color: #2b2a2a;
   font-weight: 500;
 }
 
-.container .row .element form .errorlist {
+.container .personal-info form #profile_picture-clear_id {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative !important;
+}
+
+.container .personal-info form #profile_picture-clear_id::after {
+  content: "\00a0 \00a0 \00a0 \00a0 \00a0 Clear";
+  color: red;
+}
+
+.container .personal-info form label[for=profile_picture-clear_id] {
   display: none;
+}
+
+.container .personal-info form input[type=file] {
+  color: #333;
+}
+
+.container .personal-info form .errorlist {
+  display: none;
+}
+
+.container .change-password {
+  width: 400px;
+  padding-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .change-password input {
+  margin-bottom: 20px;
+}
+
+.container input[type=text], .container input[type=password] {
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid grey;
+  padding: 5px;
+}
+
+.container input[type=text]:focus, .container input[type=password]:focus {
+  background-color: #eef1ee;
+}
+
+.container input[type=submit] {
+  background-color: orange;
+  outline: none;
+  border: none;
+  -webkit-box-shadow: 0 0 2px grey;
+          box-shadow: 0 0 2px grey;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.container input[type=submit]:hover {
+  background-color: #e29911;
+}
+
+.container input[type=submit]:active {
+  -webkit-box-shadow: 0 0 2px 2px #e7b04b;
+          box-shadow: 0 0 2px 2px #e7b04b;
+}
+
+.container .passMes {
+  color: #db3d3d;
+  font-size: 95%;
 }
 /*# sourceMappingURL=setting.css.map */

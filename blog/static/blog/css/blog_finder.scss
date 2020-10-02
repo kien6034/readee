@@ -6,7 +6,7 @@ body{
 }
 
 .main{
-    margin-top: 50px;
+    margin-top: 70px;
     position: relative;
     width: 100%;
     .sidebar{
@@ -99,7 +99,7 @@ body{
                     display: none;
                     justify-content: center;
                     align-items: center;
-                    margin-right: 10px;
+                    margin-left: 10px;
                     cursor: pointer;
                     img{
                         width: 30px;
@@ -228,7 +228,7 @@ body{
         width: 100% !important;
         .sidebar{
             z-index: 100;
-           background-color: rgb(170, 200, 235);
+           background-color: rgb(234, 235, 236);
            transform: translateX(-100%);
            transition: 0.5s ease-in-out;
            

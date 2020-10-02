@@ -28,7 +28,7 @@ a {
 }
 
 .nav {
-  z-index: 50;
+  z-index: 100;
   position: absolute;
   top: 0;
   left: 0;
@@ -70,8 +70,8 @@ a {
 }
 
 .nav .left-nav .logo img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .nav .left-nav .logo .logo-text {
@@ -113,14 +113,14 @@ a {
 
 .nav .left-nav .features .element .icon {
   font-size: 23px;
-  color: #111;
+  color: #3b3b3b;
   padding: 0;
 }
 
 .nav .left-nav .features .element .text {
   padding-left: 5px;
   font-size: 22px;
-  color: #313030;
+  color: #363535;
   font-weight: 500;
 }
 
@@ -147,8 +147,8 @@ a {
 }
 
 .userbox #user-box-thumbnail {
-  width: 50px !important;
-  height: 50px !important;
+  width: 50px;
+  height: 50px;
   border: 1px solid #a5a4a4;
   border-radius: 50%;
   overflow: hidden;
@@ -162,7 +162,6 @@ a {
 }
 
 .userbox .user-box {
-  z-index: 1000;
   position: absolute;
   top: 60px;
   right: 0px;
@@ -415,8 +414,8 @@ a {
 
 @media screen and (max-width: 960px) {
   .nav .left-nav .logo img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
   .nav .left-nav .logo .logo-text {
     display: none;
@@ -434,6 +433,10 @@ a {
   }
   .nav .left-nav .features .element .text {
     display: none;
+  }
+  .nav .right-nav #user-box-thumbnail {
+    width: 45px;
+    height: 45px;
   }
   .message-container {
     min-width: 400px !important;

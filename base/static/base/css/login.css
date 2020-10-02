@@ -44,7 +44,8 @@
 
 .login-container .logo .text {
   font-weight: 500;
-  font-size: 20px;
+  font-size: 140%;
+  color: #a31919;
 }
 
 .login-container form {
@@ -276,5 +277,9 @@ a:hover {
   color: #c72f2f;
   font-size: 90%;
   margin: 0px 10px 0px 10px !important;
+}
+
+#message {
+  color: red;
 }
 /*# sourceMappingURL=login.css.map */

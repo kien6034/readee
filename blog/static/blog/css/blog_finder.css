@@ -4,7 +4,7 @@ body {
 }
 
 .main {
-  margin-top: 50px;
+  margin-top: 70px;
   position: relative;
   width: 100%;
 }
@@ -139,7 +139,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 10px;
+  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -289,7 +289,7 @@ body {
   }
   .main .sidebar {
     z-index: 100;
-    background-color: #aac8eb;
+    background-color: #eaebec;
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
     -webkit-transition: 0.5s ease-in-out;

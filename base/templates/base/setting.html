@@ -4,20 +4,97 @@
 
 {% block extra_head_content %}
 <link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/setting.css' %}">
+
+<script>
+    window.addEventListener('DOMContentLoaded', ()=>{
+        const curPass = document.getElementById('curPass');
+        const newPass = document.getElementById('newPass');
+        const confirmPass = document.getElementById('confirmPass');
+
+        const submitBtn = document.getElementById('changePass');
+        
+        curPass.addEventListener('blur', ()=>{
+            if(curPass.value.length < 6 & curPass.value.length >0){
+                document.getElementById('cur-short-mes').classList.remove('hide')
+            }
+            else{
+                document.getElementById('cur-short-mes').classList.add('hide')
+            }
+        })
+
+        confirmPass.addEventListener('blur', ()=>{
+            if(confirmPass.value != newPass.value){
+                document.getElementById('re-mes').classList.remove('hide')
+            }
+            else{
+                document.getElementById('re-mes').classList.add('hide')
+            }
+        })
+
+        newPass.addEventListener('blur', ()=>{
+            if(newPass.value.length < 6 & newPass.value.length >0){
+                document.getElementById('new-mes').classList.remove('hide')
+            }
+            else{
+                document.getElementById('new-mes').classList.add('hide')
+            }
+        })
+        submitBtn.addEventListener('click', ()=>{
+            event.preventDefault();
+           
+            if(curPass.value.length < 6){
+                document.getElementById('cur-short-mes').classList.remove('hide')
+            }
+            else if(newPass.value.length < 6 & newPass.value.length >=0){
+                document.getElementById('new-mes').classList.remove('hide')
+            }
+            else if(newPass.value != confirmPass.value){
+                document.getElementById('re-mes').classList.remove('hide')
+            }
+            else{
+               
+                const url = '/authentication/change_password';
+               
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken':csrftoken,
+                    },
+                    body:JSON.stringify({'curPass': curPass.value, 'newPass': newPass.value})
+                })
+        
+                .then((response)=>{
+                    return response.text() 
+                })
+        
+                .then((text)=>{
+                    if(text == "wrong"){
+                        document.getElementById('cur-mes').classList.remove('hide');
+                    }
+                    if(text == "correct"){
+                        window.location = "/authentication/login"
+                    }
+                })
+            }
+        })
+        
+    })
+</script>
+
 {% endblock %}
 
 
 
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 element">
-            <div class="image-profile">
-                <img src = "{{request.user.member.imageURL}}">
-            </div>
-                
-        </div>
+<div class="container"> 
+    
+  
+   
+    <div class="personal-info">
+        <h2>Personal Info</h2>
+        <hr>
         <div class="col-lg-6 element">
             <form method = "POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -25,9 +102,27 @@
                 <input type= "submit" value = "Submit"/>
             </form>
         </div>
-      
     </div>
- 
+
+    <div class="change-password">
+        <h2>Change password</h2>
+        <hr>
+        <label for="curPass">Please enter your current password!</label>
+        <div id = "cur-short-mes" class="passMes hide">Your current password is too short</div>
+        <div id = "cur-mes" class="passMes hide">Your current password is not correct</div>
+        <input type = "password" name = "curPass" placeholder="Your current password" id = "curPass"/>
+       
+        
+        <label for="newPass">Your new password</label>
+        <div id = "new-mes" class="passMes hide">Your new password is too short!</div>
+        <input type = "password" name = "newPass" placeholder="Your new password" id = "newPass"/>
+        <div id = "re-mes" class="passMes hide">Your new password doesn't match!</div>
+        <input type = "password" name = "rePass" placeholder="Re-enter your new password" id = "confirmPass"/>
+
+        <input type = "submit" id = "changePass" value ="Change">
+    </div>
+      
+   
 
     
 </div>

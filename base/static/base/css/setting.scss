@@ -1,37 +1,106 @@
 
 .container{
-    .row{
-        margin-top: 80px;
-        .element{
-            .image-profile{
-                margin: auto;
-                width: 70%;
-                border: 1px solid black;
-                img{
-                    width: 100%;
-                }
+    margin-top: 100px;
+    h2{
+        color: rgb(21, 62, 124);
+    }
+    .personal-info{  
+      
+        form{
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            font-size: 120%;
+            color: black;
+            *{
+                margin-bottom: 20px;
             }
-            form{
+            a{
+                background: rgb(223, 172, 95);
+                padding:10px;
+                font-size: 85%;
+              
+                border-radius: 5px;
+                border: 1px solid grey;
+               
+            }
+            a::before{
+                content: 'Click me to see your profile image! \A';
+                color: rgb(35, 93, 141);
+                white-space: pre; 
+                font-style: italic;
+            }
+            label[for=id_profile_picture],label[for=id_name]{
+                margin-top: 20px;
+                font-size: 130%;
+                color: rgb(43, 42, 42);
+                font-weight: 500;
+            }
+            #profile_picture-clear_id{
                 display: flex;
-                flex-direction: column;
-                font-size: 120%;
-                a{
-                    background: lightblue;
-                    font-size: 85%;
-                    margin-bottom: 10px;
-                }
-                label[for=id_profile_picture],label[for=id_name]{
-                    font-size: 140%;
-                    color: #000;
-                    font-weight: 500;
-                }
-                label[for=id_profile_picture],label[for=id_name]{
-
-                }
-                .errorlist{
-                    display: none;
-                }
+                
+                align-items: center;
+                position: relative !important;
+            }
+            #profile_picture-clear_id::after{
+               content: "\00a0 \00a0 \00a0 \00a0 \00a0 Clear";
+               color: red;
+            }
+            label[for=profile_picture-clear_id]{
+                display: none;
+            }
+            input[type=file]{
+                color: #333;
+            }
+            
+            .errorlist{
+                display: none;
             }
         }
+    
+    }
+
+    .change-password{
+        width: 400px;
+        padding-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        input{
+            margin-bottom: 20px;
+        }
+       
+    }
+
+
+
+
+    input[type=text], input[type=password]{
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid grey;
+        padding: 5px;
+    }
+    input[type=text]:focus, input[type=password]:focus{
+        background-color: rgb(238, 241, 238);
+    }
+    input[type=submit]{
+        background-color: orange;
+        outline: none;
+        border: none;
+        box-shadow: 0 0 2px grey;
+        width: 100px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    input[type=submit]:hover{
+        background-color: rgb(226, 153, 17);
+    }
+    input[type=submit]:active{
+        box-shadow:  0 0 2px 2px rgb(231, 176, 75);
+       
+    }
+    .passMes{
+        color: rgb(219, 61, 61);
+        font-size: 95%;
     }
 }

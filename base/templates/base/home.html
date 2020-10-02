@@ -18,7 +18,11 @@
                    </div>
                 </div>
                 <div class="right">
+                    {% if request.user.member %}
+                    <a href = "{% url 'user_home_page' request.user.member.id 'post' %}" class = "my-btn my-btn-white">Home</a>
+                    {% else %}
                     <a href = "{% url 'login' %}" class = "my-btn my-btn-white">Login</a>
+                    {% endif %}
                 </div>
             </div>
             <div class="banner">
