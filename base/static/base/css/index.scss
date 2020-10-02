@@ -13,17 +13,16 @@ a{
     color: inherit !important;
 }
 
-body{
-    width: 100vw;
-    overflow-x: hidden;
+.body{
+    width: 100%;
     background-color: rgb(240, 240,240);
+    overflow-x: hidden;
 }
 .main{
     width: 100%;
     position: relative;
 }   
 .orange-bubble{
-    
     position: absolute;
     width: 50vw;
     height: 50vh;
@@ -72,12 +71,12 @@ body{
     min-height: calc(100vh - 100px);
     .blue-bubble{
         position: absolute;
-        width: 50vw;
+        width: 500px;
         height: 50vh;
         bottom: 0;
         left: 0;
         transform: translate(-70%, -20%);
-        z-index: -1;
+        z-index: 0;
     }
     .row{
         .left{
@@ -120,7 +119,8 @@ body{
                     
                 }
                 a{
-                    color: rgb(39, 38, 38) !important;
+                    width: 50% !important;
+                    color: rgb(43, 42, 42) !important;
                     font-weight: 500;
                 }
             }
@@ -173,6 +173,7 @@ body{
     align-items: center;
     justify-content: center;
     .text{
+        text-align: center;
         color: white;
         font-size: 180%;
         font-weight: 500;
@@ -186,7 +187,7 @@ body{
 
 .footer{
     margin-top: 30px;
-    margin-bottom: 50px;
+    margin-bottom:10px;
     display: flex;
     justify-content: space-around;
     .info{
@@ -199,7 +200,6 @@ body{
             .icon{
                 height: 30px;
                 width: 30px;
-               
             }
         }
         .name{
@@ -235,9 +235,15 @@ body{
     }
 }
 
+.coppyright{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
 .my-btn{
     text-decoration: none;
-    color: inherit;
+   
     border: none;
     border-radius: 5px;
     padding: 10px 15px 10px 15px;
@@ -265,7 +271,8 @@ body{
 .my-btn-white{
     outline: none;
     background-color: rgb(255, 254, 254);
-    color:  rgb(241, 103, 11);
+    color:  rgb(231, 80, 9) !important;
+    font-weight: 500;
     box-shadow: 2px 2px grey;
 }
 .my-btn-white:active{
@@ -312,6 +319,45 @@ body{
                     width: 100%;
                 }
             }
+        }
+    }
+    .text-direct{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .text{
+            font-size: 200% !important;
+        }
+        .sep-bar{
+            height: 10px;
+            width: 20%;
+            background-image: linear-gradient(to bottom, rgb(245, 195, 104), blue);
+            border-radius: 5px;
+        }
+    }
+
+    //tutorial
+    .tutorial{
+        .text{
+            font-size: 150% !important;
+        }
+        .subtext{
+            font-size: 100% !important;
+        }
+        a{
+            padding: 7px !important;
+        }
+    }
+
+    //footer
+    .footer{
+        padding-left: 3%;
+        flex-direction: column;
+        .info{
+            margin-bottom: 20px;
+        }
+        .connect{
+            margin-bottom: 30px;
         }
     }
 }

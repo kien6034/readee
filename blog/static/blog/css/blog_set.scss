@@ -8,14 +8,15 @@ a{
 }
 
 .container{
-   
+    margin-top: 100px;
     .title{
-        margin-top: 50px;
+
+        color: rgb(16, 54, 97);
         margin-bottom:20px;
         text-align: center;
         font-size: 200%;
         font-weight: 500;
-        color: #222;
+        text-shadow: 1px 1px grey;
     }
     hr{
         margin-bottom: 70px;

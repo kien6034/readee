@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,700");
 
-
+$nav-height: 70px;
 *{
     margin: 0;
     padding: 0;
@@ -33,11 +33,10 @@ a{
     position: absolute;
     top: 0;
     left: 0;
-    height: 50px;
+    height: 70px;
     width: 100%;
-    
-    
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 2px rgb(180, 179, 179);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -59,15 +58,15 @@ a{
             }
             .logo-text{
                 font-size: 30px;
-                color: rgb(18, 48, 92);
-                font-weight: 500;
+                color: rgb(199, 62, 62);
+                font-weight: 600;
                 font-family: 'Lato', sans-serif !important;
                 
             }
             .vertical-bar{
                 width: 3px;
                 height: 40px;
-                background-image:linear-gradient(to bottom, rgb(145, 204, 228), white);
+                background: grey;
                 border-radius: 1px;
             }
         }
@@ -81,14 +80,16 @@ a{
                 position: relative;
                 display: flex;
                 align-items: center;
-                .ilus{
-                    color: rgb(236, 17, 17);
-                    height: 20px !important;
+                .icon{
+                    font-size: 23px;
+                    color: #111;
+                    padding: 0;
                 }
                 .text{
                     padding-left: 5px;
-                    font-size: 20px;
-                    color: rgb(221, 221, 221);
+                    font-size: 22px;
+                    color: rgb(49, 48, 48);
+                    font-weight: 500;
                 }
             }
         }
@@ -108,8 +109,9 @@ a{
     flex-direction: column;
     position: relative;
     #user-box-thumbnail{
-        width: 40px !important;
-        height: 40px !important;
+        width: 50px !important;
+        height: 50px !important;
+        border: 1px solid rgb(165, 164, 164);
         border-radius: 50%;
         overflow: hidden;
         background-color: rgb(255, 255, 255);

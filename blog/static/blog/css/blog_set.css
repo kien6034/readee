@@ -7,13 +7,17 @@ a {
   color: inherit;
 }
 
+.container {
+  margin-top: 100px;
+}
+
 .container .title {
-  margin-top: 50px;
+  color: #103661;
   margin-bottom: 20px;
   text-align: center;
   font-size: 200%;
   font-weight: 500;
-  color: #222;
+  text-shadow: 1px 1px grey;
 }
 
 .container hr {

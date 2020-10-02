@@ -1,5 +1,24 @@
 $body-background: #1f252e;
 $blog-comment-background: #181c24;
+
+.nav{
+    background: rgb(18, 32, 48) !important;
+    box-shadow: none !important;
+    .left-nav{
+        .features{
+            .element{
+                .text{
+                    color: rgb(214, 212, 212);
+                }
+                .icon{
+                    color: rgb(226, 223, 223);
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
 .blog-banner{
     height: 500px;
     width: 100%;
@@ -13,7 +32,7 @@ $blog-comment-background: #181c24;
         min-height: 100%;
     }
     .banner-content{
-        padding-top: 70px;
+        padding-top: 100px;
         padding-left: 100px;
         position: absolute;
         width: 100%;

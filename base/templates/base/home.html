@@ -9,135 +9,145 @@
     <link rel = "stylesheet" type = "text/css" href = "{% static 'base/css/index.css' %}">
 </head>
 <body>
-    <div class="main">
-       
-        
-        <div class="nav">
-            <div class="left">
-               <div class="logo">
-                    <img src = "{% static 'base/homepage/Logo2.svg' %}">
-               </div>
-            </div>
-            <div class="right">
-                <a href = "{% url 'login' %}" class = "my-btn my-btn-white">Login</a>
-            </div>
-        </div>
-        <div class="banner">
-            <div class="orange-bubble">
-                <img src = "{% static 'base/homepage/orange bubble.svg' %}">
-            </div>
-            <div class="blue-bubble">
-                <img src = "{% static 'base/homepage/blue bubble.svg' %}">
-            </div>
-            <div class="row">
-                <div class="col-lg-6 left">
-                   <div class="frame">
-                        <div class="slogan">
-                            <div class="my-slogan">
-                                <div class="main-slogan">
-                                    READEE
-                                </div>
-                                <div class="bar"></div>
-                                <div class="sub-slogan">
-                                    read the world
-                                </div>
-                            </div>
-                            <div class="description">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta animi reiciendis rerum est, sequi exercitationem dignissimos dolore accusantium labore aliquam, tempore distinctio! Veniam cumque officiis blanditiis, nemo libero iusto quisquam!
-                            </div>
-                        </div>
-                        <div class="button">
-                            <a href = "{% url 'blog_finder' %}" class ="my-btn-primary my-btn">Explore</a>
-                        </div>
+    <div class="body">
+        <div class="main">
+            <div class="nav">
+                <div class="left">
+                   <div class="logo">
+                        <img src = "{% static 'base/homepage/Logo2.svg' %}">
                    </div>
                 </div>
-                <div class="col-lg-6 right">
-                    <img src = "{% static 'base/homepage/1.svg' %}">
+                <div class="right">
+                    <a href = "{% url 'login' %}" class = "my-btn my-btn-white">Login</a>
+                </div>
+            </div>
+            <div class="banner">
+                <div class="orange-bubble">
+                    <img src = "{% static 'base/homepage/orange bubble.svg' %}">
+                </div>
+                <div class="blue-bubble">
+                    <img src = "{% static 'base/homepage/blue bubble.svg' %}">
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 left">
+                       <div class="frame">
+                            <div class="slogan">
+                                <div class="my-slogan">
+                                    <div class="main-slogan">
+                                        READEE
+                                    </div>
+                                    <div class="bar"></div>
+                                    <div class="sub-slogan">
+                                        read the world
+                                    </div>
+                                </div>
+                                <div class="description">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta animi reiciendis rerum est, sequi exercitationem dignissimos dolore accusantium labore aliquam, tempore distinctio! Veniam cumque officiis blanditiis, nemo libero iusto quisquam!
+                                </div>
+                            </div>
+                            <div class="button">
+                                <a href = "{% url 'blog_finder' %}" class ="my-btn-primary my-btn">Explore</a>
+                            </div>
+                       </div>
+                    </div>
+                    <div class="col-lg-6 right">
+                        <img src = "{% static 'base/homepage/1.svg' %}">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="text-direct">  
         
-    
-        <div class="text">
-            &#10077  A new way of learning English  &#10078
-        </div>
-    </div>
-
-    <div class="instructions container">
-        <div class="create-post row">
+        <div class="text-direct">  
             
-            <img class = "col-lg-6 order-lg-12" src = "{% static 'base/homepage/add-post-intro' %}">
-            <div class = "col-lg-6 order-sm-1" class="descrip">
-                <h1>Hệ thống các bài đăng có sẵn được cập nhật liên tục</h1>
-                <p>Với phương châm dùng tiếng Anh để đọc, các bài đăng về nhiều lĩnh vực trong cuộc sống sẽ được cập nhật liên tục, giúp bạn đọc có thể mở mang kho tàng tri thức của mình. 
-
-                    Còn bạn băn khoăn về tiếng Anh hả? Đừng lo, đã có chúng mình lo rồi!</p>
-            </div>
-        </div>
-        <div class="flash-card row">
-            
-            <img class = "col-lg-6 " src ="{% static 'base/homepage/card-intro.svg' %}">
-            <div class = "col-lg-6" class="descrip">
-                <h1>Tạo riêng các bài đăng cho mình</h1>
-                <p>Tự tạo cho mình những bài đăng riêng. Còn gì tuyệt hơn bằng việc học từ với về những chủ đề mình muốn học, có đúng không nào.!
-
-                    Ngoài ra, bạn có thể tham khảo các bài đăng của các bạn khác nữa.</p>
-            </div>
-        </div>
-        <div class="view-others row">
-            
-            <img class = "col-lg-6 order-lg-12" src = "{% static 'base/homepage/view-others-intro.svg' %}">
-            <div class = "col-lg-6 order-sm-1" class="descrip">
-                <h1>Đây rồi! Đọc, học tiếng Anh cực nhanh bằng các thẻ từ vựng</h1>
-                <p>Với mỗi bài đăng, bạn có thể tạo các thẻ từ vựng tương ứng với bài đăng đó. Với công nghệ AI hỗ trợ, hệ thống sẽ tự động đưa ra các từ vựng mà bạn mất nhiều thời gian để nhớ nhất, để sau này đọc lại bài viết, thì sẽ tiết kiệm được rất nhiều thời gian đọc của bạn</p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="tutorial">
-        <div class="text">Flashcard, the heart of our learning system.</div>
-        <div class="subtext">View turtorial to have a better use of the website.</div>
-        <a href = "youtube.com" class = "my-btn my-btn-white">Turtorial</a>
-    </div>
-    <div class="footer">
-        <div class="info">
-            <div class="name element">
-                <div class="logo">
-                    
-                    <img src="{% static 'base/homepage/Logo2.svg' %}" alt="">
-                </div>
-                <div class="text">Readee</div>
-            </div>
-            <div class="phone element">
-                <div class="icon">
-                    <img src = "{% static 'base/homepage/phone-solid.svg' %}">
-                </div>
-                <div class="text">
-                    0982651453
-                </div>
-            </div>
-            <div class="email element">
-                <div class="icon">
-                    <img src = "{% static 'base/homepage/mail.svg' %}">
-                </div>
-                <div class="text">
-                    trinhtrungkientb99@gmail.com
-                </div>
-            </div>
-        </div>
-        <div class="connect">
+        
             <div class="text">
-                Connect with us
+                &#10077  A new way of learning English  &#10078
             </div>
-            <div class="icon">
-                <img src="{% static 'base/homepage/facebook-brands.svg' %}" alt="">
-                <img src="{% static 'base/homepage/youtube-brands.svg' %}" alt="">
+            <div class="sep-bar">
+
             </div>
         </div>
+    
+        <div class="instructions container">
+            <div class="create-post row">
+                
+                <img class = "col-lg-6 order-lg-12" src = "{% static 'base/homepage/add-post-intro.svg' %}">
+                <div class = "col-lg-6 order-sm-1" class="descrip">
+                    <h1>Hệ thống các bài đăng có sẵn được cập nhật liên tục</h1>
+                    <p>Với phương châm dùng tiếng Anh để đọc, các bài đăng về nhiều lĩnh vực trong cuộc sống sẽ được cập nhật liên tục, giúp bạn đọc có thể mở mang kho tàng tri thức của mình. 
+    
+                        Còn bạn băn khoăn về tiếng Anh hả? Đừng lo, đã có chúng mình lo rồi!</p>
+                </div>
+            </div>
+            <div class="flash-card row">
+                
+                <img class = "col-lg-6 " src ="{% static 'base/homepage/card-intro.svg' %}">
+                <div class = "col-lg-6" class="descrip">
+                    <h1>Tạo riêng các bài đăng cho mình</h1>
+                    <p>Tự tạo cho mình những bài đăng riêng. Còn gì tuyệt hơn bằng việc học từ với về những chủ đề mình muốn học, có đúng không nào.!
+    
+                        Ngoài ra, bạn có thể tham khảo các bài đăng của các bạn khác nữa.</p>
+                </div>
+            </div>
+            <div class="view-others row">
+                
+                <img class = "col-lg-6 order-lg-12" src = "{% static 'base/homepage/view-others-intro.svg' %}">
+                <div class = "col-lg-6 order-sm-1" class="descrip">
+                    <h1>Đây rồi! Đọc, học tiếng Anh cực nhanh bằng các thẻ từ vựng</h1>
+                    <p>Với mỗi bài đăng, bạn có thể tạo các thẻ từ vựng tương ứng với bài đăng đó. Với công nghệ AI hỗ trợ, hệ thống sẽ tự động đưa ra các từ vựng mà bạn mất nhiều thời gian để nhớ nhất, để sau này đọc lại bài viết, thì sẽ tiết kiệm được rất nhiều thời gian đọc của bạn</p>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="tutorial">
+            <div class="text">Flashcard, the heart of our learning system.</div>
+            <div class="subtext">View turtorial to have a better use of the website.</div>
+            <a href = "youtube.com" class = "my-btn my-btn-white">Turtorial</a>
+        </div>
+        <div class="footer">
+            <div class="info">
+                <div class="name element">
+                    <div class="logo">
+                        <img src="{% static 'base/homepage/Logo2.svg' %}" alt="">
+                    </div>
+                    <div class="text">Readee</div>
+                </div>
+                <div class="phone element">
+                    <div class="icon">
+                        <img src = "{% static 'base/homepage/phone-solid.svg' %}">
+                    </div>
+                    <div class="text">
+                        0982651453
+                    </div>
+                </div>
+                <div class="email element">
+                    <div class="icon">
+                        <img src = "{% static 'base/homepage/mail.svg' %}">
+                    </div>
+                    <div class="text">
+                        trinhtrungkientb99@gmail.com
+                    </div>
+                </div>
+            </div>
+            <div class="connect">
+                <div class="text">
+                    Connect with us
+                </div>
+                <div class="icon">
+                    <a href = "https://facebook.com">
+                        <img src="{% static 'base/homepage/facebook-brands.svg' %}" alt="">
+                    </a>
+                    <a href = "https://youtube.com">
+                        <img src="{% static 'base/homepage/youtube-brands.svg' %}" alt="">
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+       <div class="coppyright">
+        <small>&copy; Copyright Oct 2020, Readee</small>
+       </div>
     </div>
 </body>
 </html>

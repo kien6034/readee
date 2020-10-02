@@ -8,6 +8,7 @@ body {
 }
 
 .body {
+  margin-top: 70px;
   width: 100%;
   min-height: 120vh;
 }

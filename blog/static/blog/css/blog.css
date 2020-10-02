@@ -1,3 +1,18 @@
+.nav {
+  background: #122030 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.nav .left-nav .features .element .text {
+  color: #d6d4d4;
+}
+
+.nav .left-nav .features .element .icon {
+  color: #e2dfdf;
+  padding: 0;
+}
+
 .blog-banner {
   height: 500px;
   width: 100%;
@@ -18,7 +33,7 @@
 }
 
 .blog-banner .banner-content {
-  padding-top: 70px;
+  padding-top: 100px;
   padding-left: 100px;
   position: absolute;
   width: 100%;

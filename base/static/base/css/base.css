@@ -32,9 +32,11 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  height: 50px;
+  height: 70px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0 2px 2px #b4b3b3;
+          box-shadow: 0 2px 2px #b4b3b3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,16 +76,15 @@ a {
 
 .nav .left-nav .logo .logo-text {
   font-size: 30px;
-  color: #12305c;
-  font-weight: 500;
+  color: #c73e3e;
+  font-weight: 600;
   font-family: 'Lato', sans-serif !important;
 }
 
 .nav .left-nav .logo .vertical-bar {
   width: 3px;
   height: 40px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#91cce4), to(white));
-  background-image: linear-gradient(to bottom, #91cce4, white);
+  background: grey;
   border-radius: 1px;
 }
 
@@ -110,15 +111,17 @@ a {
           align-items: center;
 }
 
-.nav .left-nav .features .element .ilus {
-  color: #ec1111;
-  height: 20px !important;
+.nav .left-nav .features .element .icon {
+  font-size: 23px;
+  color: #111;
+  padding: 0;
 }
 
 .nav .left-nav .features .element .text {
   padding-left: 5px;
-  font-size: 20px;
-  color: #dddddd;
+  font-size: 22px;
+  color: #313030;
+  font-weight: 500;
 }
 
 .nav .right-nav {
@@ -144,8 +147,9 @@ a {
 }
 
 .userbox #user-box-thumbnail {
-  width: 40px !important;
-  height: 40px !important;
+  width: 50px !important;
+  height: 50px !important;
+  border: 1px solid #a5a4a4;
   border-radius: 50%;
   overflow: hidden;
   background-color: white;

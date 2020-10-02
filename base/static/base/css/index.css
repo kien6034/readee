@@ -12,10 +12,10 @@ a {
   color: inherit !important;
 }
 
-body {
-  width: 100vw;
-  overflow-x: hidden;
+.body {
+  width: 100%;
   background-color: #f0f0f0;
+  overflow-x: hidden;
 }
 
 .main {
@@ -73,13 +73,13 @@ body {
 
 .banner .blue-bubble {
   position: absolute;
-  width: 50vw;
+  width: 500px;
   height: 50vh;
   bottom: 0;
   left: 0;
   -webkit-transform: translate(-70%, -20%);
           transform: translate(-70%, -20%);
-  z-index: -1;
+  z-index: 0;
 }
 
 .banner .row .left {
@@ -139,7 +139,8 @@ body {
 }
 
 .banner .row .left .frame a {
-  color: #272626 !important;
+  width: 50% !important;
+  color: #2b2a2a !important;
   font-weight: 500;
 }
 
@@ -201,6 +202,7 @@ body {
 }
 
 .tutorial .text {
+  text-align: center;
   color: white;
   font-size: 180%;
   font-weight: 500;
@@ -214,7 +216,7 @@ body {
 
 .footer {
   margin-top: 30px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,9 +275,13 @@ body {
   height: 40px;
 }
 
+.coppyright {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .my-btn {
   text-decoration: none;
-  color: inherit;
   border: none;
   border-radius: 5px;
   padding: 10px 15px 10px 15px;
@@ -307,7 +313,8 @@ body {
 .my-btn-white {
   outline: none;
   background-color: #fffefe;
-  color: #f1670b;
+  color: #e75009 !important;
+  font-weight: 500;
   -webkit-box-shadow: 2px 2px grey;
           box-shadow: 2px 2px grey;
 }
@@ -344,6 +351,50 @@ body {
   }
   .banner .row .right img {
     width: 100%;
+  }
+  .text-direct {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .text-direct .text {
+    font-size: 200% !important;
+  }
+  .text-direct .sep-bar {
+    height: 10px;
+    width: 20%;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5c368), to(blue));
+    background-image: linear-gradient(to bottom, #f5c368, blue);
+    border-radius: 5px;
+  }
+  .tutorial .text {
+    font-size: 150% !important;
+  }
+  .tutorial .subtext {
+    font-size: 100% !important;
+  }
+  .tutorial a {
+    padding: 7px !important;
+  }
+  .footer {
+    padding-left: 3%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer .info {
+    margin-bottom: 20px;
+  }
+  .footer .connect {
+    margin-bottom: 30px;
   }
 }
 /*# sourceMappingURL=index.css.map */
